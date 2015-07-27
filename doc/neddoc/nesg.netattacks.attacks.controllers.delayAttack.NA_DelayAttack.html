@@ -1,0 +1,185 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>NA_DelayAttack</i></h2>
+<b>Package:</b> nesg.netattacks.attacks.controllers.delayAttack<br/><b>File: <a href="src-attacks-controllers-delayAttack-NA_DelayAttack.ned.html">src/attacks/controllers/delayAttack/NA_DelayAttack.ned</a></b><br/><p><a href="../doxy/classNA__DelayAttack.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p><a href="nesg.netattacks.simulations.AttackScenarios.DelayAttackScenario.Delay.html">Delay</a> attack controller simple module. Two parameters control the attack behavior:
+the attack probability and the delay time.</p>
+<p><b>See also:</b> <a href="nesg.netattacks.attacks.controllers.NA_Attack.html">NA_Attack</a>, <a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">NA_IPv4</a></p>
+<p><b>Author:</b> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es</p>
+<p><b>Date:</b> 01/22/2013</p>
+<img src="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html" title="NA_DelayAttack" alt="NA_DelayAttack" coords="0,31,154,71">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html" title="Simple Module NA_DelayAttack" alt="" coords="27,83,147,111">
+<area shape="rect" id="node2" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="Compound Module NA_AttackerAdhocHost" alt="" coords="5,6,168,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html" title="Simple Module NA_DelayAttack" alt="" coords="5,83,125,111">
+<area shape="rect" id="node2" href="nesg.netattacks.attacks.controllers.NA_Attack.html" title="Simple Module NA_Attack" alt="" coords="23,6,108,34">
+</map>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.attacks.controllers.NA_Attack.html">NA_Attack</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Base simple module inherited from all attacks modules.
+Is in charge of set the schedulling parameters, attack activation or not, and what
+is the type of the attack.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Attacker wireless ad hoc host. Modificated from WirelessHost module. 
+Redefined from INET framework and used as attacker host.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>attackType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"delay"</td>
+   <td>
+<p>String with the type of attack</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>active</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Indicates if this attack is active or not in the node</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Timestamp to start the attack</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>endTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Time instant at which the attack ends, 0 means that the attack will not end during the simulation.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>delayAttackProbability</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Probability of delaying a packet. Range [0,1].</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>delayAttackValue</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>normal(1s, 0.1s)</td>
+   <td>
+<p>Random delay time</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=misc/cloud3,red,100;is=l</i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>class</td>
+   <td><i>NA_DelayAttack</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Delay attack controller simple module. Two parameters control the attack behavior:
+// the attack probability and the delay time.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> NA_Attack, NA_IPv4
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_DelayAttack</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_Attack</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; font-weight: bold; ">@class</span><span style="color: #000000; ">(</span><span style="color: #000000; ">NA_DelayAttack</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=misc/cloud3,red,100;is=l&quot;</span><span style="color: #000000; ">);
+
+        </span><span style="color: #000000; ">attackType</span><span style="color: #000000; "> = </span><span style="color: #008000; ">&quot;delay&quot;</span><span style="color: #000000; ">;  </span><span style="color: #808080; font-style: italic; ">//Should correspond with the tag located in the hackedModules.ned. e.g. @delay for this attack.
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">delayAttackProbability</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">//Probability of delaying a packet. Range [0,1].
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">delayAttackValue</span><span style="color: #000000; "> </span><span style="color: #000000; font-weight: bold; ">@unit</span><span style="color: #000000; ">(</span><span style="color: #000000; ">s</span><span style="color: #000000; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #800080; font-weight: bold; ">normal</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">s</span><span style="color: #000000; ">, </span><span style="color: #008000; ">0</span><span style="color: #000000; ">.</span><span style="color: #008000; ">1</span><span style="color: #000000; ">s</span><span style="color: #000000; ">));</span><span style="color: #808080; font-style: italic; ">//Random delay time
+</span><span style="color: #000000; ">}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

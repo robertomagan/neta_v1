@@ -1,0 +1,26 @@
+var structRERR =
+[
+    [ "RERR", "structRERR.html#ad23a9cc52c864e6ee4643dfedc5e631b", null ],
+    [ "~RERR", "structRERR.html#a6cd8835ea897c3f1eeac067497b5e438", null ],
+    [ "RERR", "structRERR.html#a92f44f5f30f6fb5c11cd15b2711e99c7", null ],
+    [ "addUdest", "structRERR.html#a1c76dd403258f3bf77f1bdfeac954978", null ],
+    [ "clearUdest", "structRERR.html#a272ad113037e3a95a8a226a2749b48e8", null ],
+    [ "copy", "structRERR.html#a93447054cf19917304dd2075649b32ff", null ],
+    [ "dup", "structRERR.html#a2ef0dc6376900ff87559f679449aeb73", null ],
+    [ "getN", "structRERR.html#aec47eda1c786fb9832fac8d141b28130", null ],
+    [ "getRes1", "structRERR.html#a564d9b0a4a740c446f2573b2a17c9bfc", null ],
+    [ "getRes2", "structRERR.html#a0a75df9ed07068217f8d9aa2ec80e8ae", null ],
+    [ "getUdest", "structRERR.html#a5a587f0a4773a835373cf916cb13fef9", null ],
+    [ "getUdestArraySize", "structRERR.html#a9954cefa277da6afd54c114f5b3c106e", null ],
+    [ "getUdestRef", "structRERR.html#a6ccaf8e7508ed8d914288f6e7fddf5c7", null ],
+    [ "operator=", "structRERR.html#a3dbf9a19803628f861370285ec75f622", null ],
+    [ "_udest", "structRERR.html#a1238b54997f5a7922743ce0af34779d1", null ],
+    [ "dest_addr", "structRERR.html#aa79af0118f5f8ecd3fd794ed9fc9dcb1", null ],
+    [ "dest_count", "structRERR.html#aca0421fec134de2a1f74acb36b886dd1", null ],
+    [ "dest_seqno", "structRERR.html#a9f8d5ebd76ef26be8795b28b7dbe6488", null ],
+    [ "n", "structRERR.html#a942c69b4f2055b740d37b698f853c387", null ],
+    [ "res1", "structRERR.html#a3558b60ff23b2d172a7f92062ff21ce0", null ],
+    [ "res2", "structRERR.html#af75f9a550c02b1c78e670dd349e4ae8d", null ],
+    [ "res2", "structRERR.html#a670bc838fb3802390fe5c5d6c75c3f48", null ],
+    [ "type", "structRERR.html#a5c6fe8edfc46ac068ed64b8b3743dbc9", null ]
+];

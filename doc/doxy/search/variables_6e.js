@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['n',['n',['../structRERR.html#a942c69b4f2055b740d37b698f853c387',1,'RERR']]],
+  ['neighbor',['neighbor',['../structprecursor.html#afc67329c006c8ba2e0f1ae4718d16cda',1,'precursor']]],
+  ['netmask',['netmask',['../structdev__info.html#af34c87769a06f82a6c46bbc164dc4aa8',1,'dev_info']]],
+  ['next',['next',['../structlist__t.html#ac9b30d2502517007c4daaa4eebfd40c9',1,'list_t::next()'],['../structwireless__iface.html#ae23c9123de2fdfd15bf5c4c54dc6d9d8',1,'wireless_iface::next()']]],
+  ['next_5fhop',['next_hop',['../structrt__table.html#a1046410b40a5ebff3e93efd435370cb3',1,'rt_table']]],
+  ['nif',['nif',['../structhost__info.html#aac008fcec2a6f263cdb7a328a1677a62',1,'host_info']]],
+  ['node_5faddr',['node_addr',['../utilidades_8cc.html#a4a1ba98aad33712bb6059e7857256a78',1,'utilidades.cc']]],
+  ['node_5faddress',['node_address',['../utilidades_8cc.html#a1b8abcad63997947c486a54ce8749fa5',1,'utilidades.cc']]],
+  ['node_5fid',['node_id',['../classNA__AODVUU.html#a0f4dbf57ef074d3b872e64cf1cda8e9a',1,'NA_AODVUU']]],
+  ['nodename',['nodeName',['../classNA__AODVUU.html#afca6211870b02e95aba585312ee90a1a',1,'NA_AODVUU']]],
+  ['nprec',['nprec',['../structrt__table.html#aa6936b6581e12bb654b598e0230818be',1,'rt_table']]],
+  ['ns_5fdev_5fnr',['NS_DEV_NR',['../classNA__AODVUU.html#ae897f39b6aff1af8de0fa1142ec0d9c3',1,'NA_AODVUU']]],
+  ['ns_5fifindex',['NS_IFINDEX',['../classNA__AODVUU.html#ab9cb01b649db0265db76d4cf5e7b7886',1,'NA_AODVUU']]],
+  ['num_5factive',['num_active',['../structrouting__table.html#a3c6303b4e2dfb9422d985d3a6200c178',1,'routing_table']]],
+  ['num_5fentries',['num_entries',['../structrouting__table.html#a7125a62fc2021951e4effe615a892fd9',1,'routing_table']]],
+  ['num_5frerr',['num_rerr',['../NA__aodv__socket_8h.html#a2c5a4291e7e7b1c49583d65ce1c0a679',1,'NA_aodv_socket.h']]],
+  ['num_5frreq',['num_rreq',['../NA__aodv__socket_8h.html#a425356b81e173631ab1116ca2f0464ef',1,'NA_aodv_socket.h']]],
+  ['numdelays',['numDelays',['../classNA__IPv4.html#ab485f8a3c243e8e9cbbf27535b56ee72',1,'NA_IPv4']]],
+  ['numdrops',['numDrops',['../classNA__IPv4.html#a5b9aeffe46a2f5514c26839bf5055269',1,'NA_IPv4']]],
+  ['numhops',['numHops',['../classNA__AODVUU.html#a00e5010e59b193648a59b1d9c2bedbcf',1,'NA_AODVUU']]],
+  ['numhopstotal',['numHopsTotal',['../classNA__UDPBasicBurst.html#a368db743d4478bb61a5bbf4d2d347cbe',1,'NA_UDPBasicBurst']]],
+  ['numrecvpacket',['numRecvPacket',['../classNA__IPv4.html#a2ecc329bf53a7d9accd9cbde8df4198e',1,'NA_IPv4']]],
+  ['numsents',['numSents',['../classNA__AODVUU.html#acb33231c9a83abbc0ea087f60f7f48f1',1,'NA_AODVUU']]]
+];

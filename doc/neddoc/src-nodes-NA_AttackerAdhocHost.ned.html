@@ -1,0 +1,115 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/nodes/NA_AttackerAdhocHost.ned</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Attacker wireless ad hoc host. Modificated from WirelessHost module. 
+Redefined from INET framework and used as attacker host.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 and modified by NESG (Network Engineering and Security Group), http://nesg.ugr.es,
+// - Gabriel Maci&aacute; Fern&aacute;ndez (gmacia@ugr.es)
+// - Leovigildo S&aacute;nchez Casado (sancale@ugr.es)
+// - Rafael A. Rodr&iacute;guez G&oacute;mez (rodgom@ugr.es)
+// - Roberto Mag&aacute;n Carri&oacute;n (rmagan@ugr.es)
+// - Pedro Garc&iacute;a Teodoro (pgteodor@ugr.es)
+// - Jos&eacute; Camacho P&aacute;ez (josecamacho@ugr.es)
+// - Jes&uacute;s E. D&iacute;az Verdejo (jedv@ugr.es)
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">nodes</span><span style="color: #000000; ">;
+
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">nodes</span><span style="color: #000000; ">.</span><span style="color: #000000; ">NA_WirelessHost</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">inet</span><span style="color: #000000; ">.</span><span style="color: #000000; ">networklayer</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IManetRouting</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">attacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">controllers</span><span style="color: #000000; ">.</span><span style="color: #000000; ">NA_Attack</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">attacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">controllers</span><span style="color: #000000; ">.</span><span style="color: #000000; ">delayAttack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">NA_DelayAttack</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">attacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">controllers</span><span style="color: #000000; ">.</span><span style="color: #000000; ">droppingAttack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">NA_DroppingAttack</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">attacks</span><span style="color: #000000; ">.</span><span style="color: #000000; ">controllers</span><span style="color: #000000; ">.</span><span style="color: #000000; ">sinkholeAttack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">NA_SinkholeAttack</span><span style="color: #000000; ">;
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Attacker wireless ad hoc host. Modificated from WirelessHost module. 
+// Redefined from INET framework and used as attacker host.
+//
+// To implement an attack you must include the corresponding attack controller module in the attacker host.
+//
+// This attack could be include N attacks controllers to implement several simultaneous attacks.
+// The current attack controllers included are:
+// - NA_DroppingAttack (dropping attack controller)
+// - NA_DelayAttack (dropping attack controller)
+// - NA_SinkholeAttack (dropping attack controller)
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> AdhocHost, WirelessHost, NA_DroppingAttack, NA_DelayAttack, NA_SinkholeAttack
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_AttackerAdhocHost</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_WirelessHost</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=device/cellphone,red;bgb=803,448;i2=status/lightning&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; ">wlan</span><span style="color: #000000; ">[*].</span><span style="color: #000000; ">mgmtType</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;Ieee80211MgmtAdhoc&quot;</span><span style="color: #000000; ">);  </span><span style="color: #808080; font-style: italic; ">// use adhoc management
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #000000; "> </span><span style="color: #000000; ">routingProtocol</span><span style="color: #000000; "> </span><span style="color: #000000; font-weight: bold; ">@enum</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;AODVUU&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;DYMOUM&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;DYMO&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;DSRUU&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;OLSR&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;OLSR_ETX&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;DSDV_2&quot;</span><span style="color: #000000; ">,</span><span style="color: #008000; ">&quot;Batman&quot;</span><span style="color: #000000; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;AODVUU&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; ">IPForward</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">manetrouting</span><span style="color: #000000; ">: &lt;</span><span style="color: #000000; ">routingProtocol</span><span style="color: #000000; ">&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IManetRouting</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #000000; "> </span><span style="color: #000000; ">routingProtocol</span><span style="color: #000000; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=522,307&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #0000ff; font-style: italic; ">//# Include dropping attack controller
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">droppingAttack</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_DroppingAttack</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=708,46&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #0000ff; font-style: italic; ">//# Include delay attack controller
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">delayAttack</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_DelayAttack</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=708,126&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #0000ff; font-style: italic; ">//# Include sinkhole attack controller
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">sinkholeAttack</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_SinkholeAttack</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=708,205&quot;</span><span style="color: #000000; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">networkLayer</span><span style="color: #000000; ">.</span><span style="color: #000000; ">manetOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">manetrouting</span><span style="color: #000000; ">.</span><span style="color: #000000; ">from_ip</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #000000; "> </span><span style="color: #000000; ">routingProtocol</span><span style="color: #000000; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">networkLayer</span><span style="color: #000000; ">.</span><span style="color: #000000; ">manetIn</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #000000; "> </span><span style="color: #000000; ">manetrouting</span><span style="color: #000000; ">.</span><span style="color: #000000; ">to_ip</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #000000; "> </span><span style="color: #000000; ">routingProtocol</span><span style="color: #000000; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #000000; ">;
+        
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

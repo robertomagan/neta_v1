@@ -1,0 +1,104 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/ma-index.ned</i></h2>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2010 Andras Varga
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 and modified by NESG (Network Engineering and Security Group), http://nesg.ugr.es,
+// - Gabriel Maci&aacute; Fern&aacute;ndez (gmacia@ugr.es)
+// - Leovigildo S&aacute;nchez Casado (sancale@ugr.es)
+// - Rafael A. Rodr&iacute;guez G&oacute;mez (rodgom@ugr.es)
+// - Roberto Mag&aacute;n Carri&oacute;n (rmagan@ugr.es)
+// - Pedro Garc&iacute;a Teodoro (pgteodor@ugr.es)
+// - Jos&eacute; Camacho P&aacute;ez (josecamacho@ugr.es)
+// - Jes&uacute;s E. D&iacute;az Verdejo (jedv@ugr.es)
+// 
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// </span><span style="color: #000080; ">@titlepage</span><span style="color: #808080; font-style: italic; ">
+//
+// </span><span style="color: #800000; ">&lt;center&gt;&lt;h1&gt;</span><span style="color: #808080; font-style: italic; ">NETwork Attacks Framework for OMNeT++</span><span style="color: #800000; ">&lt;/h1&gt;&lt;/center&gt;</span><span style="color: #808080; font-style: italic; ">
+// </span><span style="color: #800000; ">&lt;center&gt;</span><span style="color: #808080; font-style: italic; ">release 0.0.1</span><span style="color: #800000; ">&lt;/center&gt;</span><span style="color: #808080; font-style: italic; ">
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//</span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; "> NETwork Attacks (NETA)</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; "> is a framework devised to simulate attacks in heterogeneous networks using OMNeT++. 
+//There exists a huge amount of research in network security and, with this framework, we pretend to give an 
+//useful tool to researcher that are working on it. This tool could make easy to demonstrate the e&#64256;ectiveness 
+//of defence (detection or response) techniques against manet attacks or to compare the capabilities of different 
+//defence techniques among many other applications. NETA is a </span><span style="color: #800000; ">&lt;a href=&quot;http://inet.omnetpp.org/&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">INET 2.1.0</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; "> based framework. INET provides realistic 
+//implementations of structures and protocols on each protocol layers, especially in the higher ones: network, 
+//transport and application layers. For example, INET develops Mobile Ad-hoc NETworks (MANETs) routing protocols as AODV, DSR, OLSR, etc., 
+//and several TCP implementations as well as several applications. Thanks to the versatile and extensible schema of NETA, 
+//a huge amount attacks could be implemented in each protocol layer.
+//
+//NETA provides a useful tool for the research community for netowrk security threats concerns. NETA tries 
+//to be a reference base tool for the network attacks simulation and implementation. 
+//Is delivered under GPL license for free use of the research community, thus growing with the contributions 
+//of this community.
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">// NETA makes the attack use and design easier!
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// See the </span><span style="color: #800000; ">&lt;tt&gt;&lt;a href=&quot;whatsnew.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">WHATSNEW</span><span style="color: #800000; ">&lt;/a&gt;&lt;/tt&gt;</span><span style="color: #808080; font-style: italic; "> file in the distribution 
+// for the list of recent changes.
+//
+// Introductory material:
+//  - </span><span style="color: #800000; ">&lt;a href=&quot;ma-architecture.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NETA Framework architecture</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">
+//  - </span><span style="color: #800000; ">&lt;a href=&quot;../resources/frameworkDescription.pdf&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NETA Framework User Manual (pdf)</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// Related documentation:
+//   - </span><span style="color: #800000; ">&lt;a href=&quot;../doxy/index.html&quot; target=&quot;_top&quot;&gt;</span><span style="color: #808080; font-style: italic; ">C++ source documentation (Doxygen)</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// Installation procedure:
+//	 </span><span style="color: #800000; ">&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;install.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NETA installation guide</span><span style="color: #800000; ">&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// </span><span style="color: #800000; ">&lt;a href=&quot;history.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">History and contributors</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//
+// </span><span style="color: #000080; ">@page</span><span style="color: #808080; font-style: italic; "> history.html, History
+//
+//   In mid of 2012, the NETA Framework concept begin to be a real purpose. 
+//   It is built by the </span><span style="color: #800000; ">&lt;a href=&quot;http://nesg.ugr.es&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NESG</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; "> (Network Engineering &amp; Security Group) to provide to the research
+//   community a reference and useful tool for simulation and development network attacks.
+//   
+//   Currently, in mid of 2013, and architecture and several attacks examples has been created, corroborating the 
+//   feasibility of this framework as tool to create and to use network attacks in whatever protocol layers and networks.
+//
+//	Regards to the contributors that have made it possible, currently are:
+//
+// </span><span style="color: #800000; ">&lt;table&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=9&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Gabriel Maci&amp;aacute; Fern&amp;aacute;ndez</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; "> (gmacia@ugr.es), project head and developer</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">    </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=7&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Leovigildo S&amp;aacute;nchez Casado</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (sancale@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">     </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=8&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Rafael Rodr&amp;iacute;guez G&amp;oacute;mez</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (rodgom@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">   </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//	 </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=2&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Roberto Mag&amp;aacute;n Carri&amp;oacute;n</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (rmagan@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">   </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=6&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Pedro Garc&amp;iacute;a Teodoro</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (pgteodor@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">   </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=10&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Jos&amp;eacute; Camacho P&amp;aacute;ez</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (josecamacho@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">   </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//   </span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; ">  </span><span style="color: #800000; ">&lt;td&gt;&lt;a href=&quot;http://nesg.ugr.es/index.php?option=com_jresearch&amp;view=member&amp;task=show&amp;id=4&amp;Itemid=61&quot; target=&quot;_blank&quot;&gt;</span><span style="color: #808080; font-style: italic; ">Jes&amp;uacute;s E. D&amp;iacute;az Verdejo</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">  (jedv@ugr.es), developer.</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">   </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+// </span><span style="color: #800000; ">&lt;/table&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+</span><span style="color: #000000; ">
+
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">;
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

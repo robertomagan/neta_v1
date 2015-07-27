@@ -1,0 +1,74 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Msg File <i>src/attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage.msg</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="NA_SinkholeMessage.html">NA_SinkholeMessage</a>
+   </td>
+   <td>
+<i>message</i>
+   </td>
+   <td>
+
+<p>Message interchanged between sinkhole attack controller and the corresponding hacked
+modules. In this case <a href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html">NA_AODVUU</a></p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 by NESG (Network Engineering and Security Group), http://nesg.ugr.es
+// Dept. of Signal Theory, Telematics and Communications
+// University of Granada
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #000000; "> {{
+#</span><span style="color: #000000; ">include</span><span style="color: #000000; "> </span><span style="color: #008000; ">&quot;omnetpp.h&quot;</span><span style="color: #000000; ">
+</span><span style="color: #000000; ">typedef</span><span style="color: #000000; "> </span><span style="color: #000000; ">cPar</span><span style="color: #000000; "> *</span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; ">;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">noncobject</span><span style="color: #000000; "> </span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Message interchanged between sinkhole attack controller and the corresponding hacked
+// modules. In this case NA_AODVUU
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> NA_SinkholeAttack, NA_AODVUU
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_SinkholeMessage</span><span style="color: #000000; "> {
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkOnlyWhenRouteInTable</span><span style="color: #000000; ">; 	</span><span style="color: #808080; font-style: italic; ">// TRUE indicates that only RREQ for routes that are in routing table are answered as the best route across the sink node.
+</span><span style="color: #000000; ">    								</span><span style="color: #808080; font-style: italic; ">// A false value indicates that all the sinkhole node will answer to all the RREQ with fake routes. 
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkholeAttackProbability</span><span style="color: #000000; ">;  	</span><span style="color: #808080; font-style: italic; ">//Probability for announcing a fake route when a RREQ is received. Value in [0,1]
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; "> </span><span style="color: #000000; ">seqnoAdded</span><span style="color: #000000; ">; 					</span><span style="color: #808080; font-style: italic; ">// Sequence number.
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numHops</span><span style="color: #000000; ">;						</span><span style="color: #808080; font-style: italic; ">// Number of hops.
+</span><span style="color: #000000; ">}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

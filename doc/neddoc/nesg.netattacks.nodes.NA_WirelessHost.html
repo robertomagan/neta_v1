@@ -1,0 +1,487 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Compound Module <i>NA_WirelessHost</i></h2>
+<b>Package:</b> nesg.netattacks.nodes<br/><b>File: <a href="src-nodes-NA_WirelessHost.ned.html">src/nodes/NA_WirelessHost.ned</a></b><br/>
+<p>Generic wireless host. Modificated from WirelessHost module. 
+Migrated from INET for inheritance requirements 
+of <a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a> and <a href="nesg.netattacks.nodes.NA_AttackerWirelessHost.html">NA_AttackerWirelessHost</a></p>
+<p><b>See also:</b> WirelessHost, StandardHost</p>
+<p><b>Author:</b> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es</p>
+<p><b>Date:</b> 01/22/2013</p>
+<img src="nesg.netattacks.nodes.NA_WirelessHost-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.base.NotificationBoard.html" title="NotificationBoard" alt="NotificationBoard" coords="-4,214,115,275">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.mobility.IMobility.html" title="IMobility" alt="IMobility" coords="27,149,83,194">
+<area shape="rect" href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html" title="NA_NetworkLayer" alt="NA_NetworkLayer" coords="285,307,378,368">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html" title="RoutingTable" alt="RoutingTable" coords="13,307,98,368">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="7,406,104,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="43,287,279,332">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.IWirelessNic.html" title="IWirelessNic" alt="IWirelessNic" coords="103,406,219,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.IWiredNic.html" title="IWiredNic" alt="IWiredNic" coords="228,406,341,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.IWiredNic.html" title="IWiredNic" alt="IWiredNic" coords="348,406,471,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.IExternalNic.html" title="IExternalNic" alt="IExternalNic" coords="474,406,625,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.ITCPApp.html" title="ITCPApp" alt="ITCPApp" coords="115,74,262,135">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.transport.ITCP.html" title="ITCP" alt="ITCP" coords="168,161,212,222">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.IUDPApp.html" title="IUDPApp" alt="IUDPApp" coords="260,74,416,135">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.transport.IUDP.html" title="IUDP" alt="IUDP" coords="318,161,362,222">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.ISCTPApp.html" title="ISCTPApp" alt="ISCTPApp" coords="423,74,584,135">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.transport.ISCTP.html" title="ISCTP" alt="ISCTP" coords="483,161,527,222">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.IPingApp.html" title="IPingApp" alt="IPingApp" coords="423,250,583,311">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.nodes.NA_WirelessHost-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.nodes.NA_WirelessHost.html" title="Compound Module NA_WirelessHost" alt="" coords="5,6,131,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.nodes.NA_WirelessHost-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.nodes.NA_WirelessHost.html" title="Compound Module NA_WirelessHost" alt="" coords="79,83,204,111">
+<area shape="rect" id="node4" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="Compound Module NA_AdhocHost" alt="" coords="5,161,117,189">
+<area shape="rect" id="node6" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="Compound Module NA_AttackerAdhocHost" alt="" coords="141,161,304,189">
+<area shape="rect" id="node2" href="nesg.netattacks.nodes.NA_StandardHost.html" title="Compound Module NA_StandardHost" alt="" coords="77,6,205,34">
+</map>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_StandardHost.html">NA_StandardHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Generic standard host. Modificated from StandarHost module. 
+Migrated from INET for inheritance requirements 
+of <a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a> and <a href="nesg.netattacks.nodes.NA_AttackerWirelessHost.html">NA_AttackerWirelessHost</a></p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Known subclasses:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_AdhocHost.html">NA_AdhocHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Wireless ad hoc host. Modificated from WirelessHost module. 
+Redefined from INET framework and used as normal host.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Attacker wireless ad hoc host. Modificated from WirelessHost module. 
+Redefined from INET framework and used as attacker host.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>numExtInterfaces</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>numRadios</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>the number of radios in the router. by default no wireless</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>numPcapRecorders</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>no of PcapRecorders.</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>mobilityType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"StationaryMobility"</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>routingFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>IPForward</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>numTcpApps</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>no of TCP apps. Specify the app types in INI file with tcpApp[0..1].typename="TCPEchoApp" syntax</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>numUdpApps</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>no of UDP apps. Specify the app types in INI file with udpApp[0..1].typename="UDPVideoStreamCli" syntax</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>numSctpApps</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>no of SCTP apps. Specify the app types in INI file with sctpApp[0..1].typename="SCTPServer" syntax</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>numPingApps</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>no of PING apps. Specify the app types in INI file with pingApp[0..1].typename="PingApp" syntax</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>tcpType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>firstAvailable("TCP", "TCP_lwIP", "TCP_NSC", "TCP_None")</td>
+   <td>
+<p>tcp implementation (e.g. ~TCP, ~TCP_lwIP, ~TCP_NSC) or ~TCPSpoof</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>udpType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>firstAvailable("UDP","UDP_None")</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>sctpType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>firstAvailable("SCTP","SCTP_None")</td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=device/wifilaptop</i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>node</td>
+   <td><i></i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>labels</td>
+   <td><i>node</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>radioIn [ ]</xsl:if></td>
+   <td><i>input</i></td>
+   <td>numRadios</td>   <td></td>
+</tr>
+<tr class="inherited">
+   <td>pppg [ ]</xsl:if></td>
+   <td><i>inout</i></td>
+   <td></td>   <td></td>
+</tr>
+<tr class="inherited">
+   <td>ethg [ ]</xsl:if></td>
+   <td><i>inout</i></td>
+   <td></td>   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Generic wireless host. Modificated from WirelessHost module. 
+// Migrated from INET for inheritance requirements 
+// of NA_AttackerAdhocHost and NA_AttackerWirelessHost
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> WirelessHost, StandardHost
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_WirelessHost</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_StandardHost</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=device/wifilaptop&quot;</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">numRadios</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

@@ -1,0 +1,10 @@
+<area shape="rect" id="node1" href="nesg.netattacks.nodes.NA_NodeBase.html" title="Compound Module NA_NodeBase" alt="" coords="527,6,636,34">
+<area shape="rect" id="node2" href="../../../inet/doc/neddoc/inet.linklayer.IWirelessNic.html" title="Module Interface IWirelessNic" alt="" coords="5,83,101,111">
+<area shape="rect" id="node4" href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html" title="Simple Module PcapRecorder" alt="" coords="125,83,229,111">
+<area shape="rect" id="node6" href="../../../inet/doc/neddoc/inet.base.NotificationBoard.html" title="Simple Module NotificationBoard" alt="" coords="253,83,376,111">
+<area shape="rect" id="node8" href="../../../inet/doc/neddoc/inet.linklayer.IExternalNic.html" title="Module Interface IExternalNic" alt="" coords="400,83,493,111">
+<area shape="rect" id="node10" href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html" title="Compound Module NA_NetworkLayer" alt="" coords="517,83,645,111">
+<area shape="rect" id="node12" href="../../../inet/doc/neddoc/inet.linklayer.IWiredNic.html" title="Module Interface IWiredNic" alt="" coords="669,83,749,111">
+<area shape="rect" id="node14" href="../../../inet/doc/neddoc/inet.mobility.IMobility.html" title="Module Interface IMobility" alt="" coords="773,83,845,111">
+<area shape="rect" id="node16" href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html" title="Simple Module InterfaceTable" alt="" coords="869,83,973,111">
+<area shape="rect" id="node18" href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html" title="Simple Module RoutingTable" alt="" coords="997,83,1096,111">

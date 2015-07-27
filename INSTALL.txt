@@ -1,0 +1,52 @@
+INSTALLATION INSTRUCTIONS
+=========================
+
+The MA Framework can be compiled on any platform supported by OMNeT++.
+
+PREREQUISITES
+
+You should have a working OMNeT++ installation, version 4.2.1 or later.
+
+INSTALLATION STEPS
+
+1. Install OMNeT++. Download the OMNeT++ source code from http://omnetpp.org.
+Copy the OMNeT++ archive to the directory where you want to install it and 
+extract it. Then enter the following commands:
+
+	$ ./configure
+	$ make
+
+More details about the installation process can be found in 
+http://omnetpp.org/doc/omnetpp/InstallGuide.pdf.
+
+2. Import INET 2.1.0. Download INET 2.1.0 
+from http://omnetpp.org/download/contrib/models/inet-2.1.0-src.tgz. Import it as 
+a new project into your workspace (File > Import > General > Existing project 
+into Workspace) and select the option 'Select archive ﬁle'.
+
+3. Copy and override the file ManetRoutingBase.cc from NETA framework located 
+into 'resources/patch/INET_21' folder to 
+/inet/src/networklayer/manetrouting/base/ into the INET project previously 
+imported. This file fix the bug 632 http://dev.omnetpp.org/bugs/view.php?id=632. 
+
+4. Build INET project (right-click on the project and select 'Build project').
+
+5. Import NETwork Attacks framework. The last version of the framework
+can be found in http://nesg.ugr.es/index.php/en/results. Import it proceeding in similar way of the 
+process followed with INET in step 2.
+
+6. Make you sure that NETA project has INET project as project reference 
+(Project > Properties > Project References). Also, the 'MANET Routing' project 
+feature must be selected (Project > Properties > OMNET++ > Project Features)
+
+7. Build NETA project (right-click on the project and select 'Build project').
+
+8. Please check if NETA framework is working correctly by running any 
+simple simulation escenario located under 'simulations' folder.
+
+9. And finally, enjoy it!
+
+---
+NESG (Network Engineering & Security Group) - http://nesg.ugr.es
+
+

@@ -1,0 +1,149 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Msg File <i>src/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.msg</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="AODV_ext.html">AODV_ext</a>
+   </td>
+   <td>
+<i>struct</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2011 Zoltan Bojthe
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;.
+//
+</span><span style="color: #000000; ">
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #000000; "> {{
+#</span><span style="color: #000000; ">include</span><span style="color: #000000; "> </span><span style="color: #008000; ">&quot;NA_aodv_msg_struct.h&quot;</span><span style="color: #000000; ">
+#</span><span style="color: #000000; ">include</span><span style="color: #000000; "> </span><span style="color: #008000; ">&quot;ManetAddress.h&quot;</span><span style="color: #000000; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">noncobject</span><span style="color: #000000; "> </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_ext</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">type</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">length</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">//TODO char *pointer;
+</span><span style="color: #000000; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// A generic AODV packet header
+//
+</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_msg</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">type</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">ttl</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">prevFix</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">AODV_ext</span><span style="color: #000000; "> </span><span style="color: #000000; ">extension</span><span style="color: #000000; ">[] </span><span style="color: #000000; font-weight: bold; ">@getter</span><span style="color: #000000; ">(</span><span style="color: #000000; ">getExtensionRef</span><span style="color: #000000; ">) </span><span style="color: #000000; font-weight: bold; ">@sizeGetter</span><span style="color: #000000; ">(</span><span style="color: #000000; ">getNumExtension</span><span style="color: #000000; ">);
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Extra unreachable destinations
+//
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #000000; "> </span><span style="color: #000000; ">RERR_udest</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #808080; font-style: italic; ">//uint32_t dest_addr;
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_addr</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_seqno</span><span style="color: #000000; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #000000; "> </span><span style="color: #000000; ">RERR</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_msg</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #000000; "> </span><span style="color: #000000; ">res1</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #000000; "> </span><span style="color: #000000; ">n</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #000000; "> </span><span style="color: #000000; ">res2</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">RERR_udest</span><span style="color: #000000; "> </span><span style="color: #000000; ">udest</span><span style="color: #000000; ">[] </span><span style="color: #000000; font-weight: bold; ">@getter</span><span style="color: #000000; ">(</span><span style="color: #000000; ">getUdestRef</span><span style="color: #000000; ">);
+}
+
+</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #000000; "> </span><span style="color: #000000; ">RREP</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_msg</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">uint16_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">res1</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint16_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">a</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint16_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">r</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint16_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">prefix</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint16_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">res2</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">hcnt</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">//uint32_t dest_addr;
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_addr</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_seqno</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">//u_int32_t orig_addr;
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; "> </span><span style="color: #000000; ">orig_addr</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">lifetime</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">cost</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; ">  </span><span style="color: #000000; ">hopfix</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">AODV_ext</span><span style="color: #000000; "> </span><span style="color: #000000; ">extension</span><span style="color: #000000; ">[];
+}
+
+</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #000000; "> </span><span style="color: #000000; ">RREP_ack</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_msg</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">reserved</span><span style="color: #000000; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #000000; "> </span><span style="color: #000000; ">RREQ</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">AODV_msg</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@existingClass</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; font-weight: bold; ">@descriptor</span><span style="color: #000000; ">(</span><span style="color: #000080; font-weight: bold; ">readonly</span><span style="color: #000000; ">);
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">j</span><span style="color: #000000; ">;     </span><span style="color: #808080; font-style: italic; ">// Join flag (multicast)
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">r</span><span style="color: #000000; ">;     </span><span style="color: #808080; font-style: italic; ">// Repair flag
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">g</span><span style="color: #000000; ">;     </span><span style="color: #808080; font-style: italic; ">// Gratuitous RREP flag
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">d</span><span style="color: #000000; ">;     </span><span style="color: #808080; font-style: italic; ">// Destination only respond
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">res1</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">res2</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">hcnt</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">rreq_id</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">//uint32_t dest_addr;
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_addr</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">dest_seqno</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">//u_int32_t orig_addr;
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ManetAddress</span><span style="color: #000000; "> </span><span style="color: #000000; ">orig_addr</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">orig_seqno</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint32_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">cost</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">uint8_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">hopfix</span><span style="color: #000000; ">;
+}
+
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Message <i>NA_SinkholeMessage</i></h2>
+<b>File: <a href="src-attacks-controlmessages-sinkholeAttack-NA_SinkholeMessage.msg.html">src/attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage.msg</a></b><br/>
+<p>Message interchanged between sinkhole attack controller and the corresponding hacked
+modules. In this case <a href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html">NA_AODVUU</a></p>
+<p><b>See also:</b> <a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">NA_SinkholeAttack</a>, <a href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html">NA_AODVUU</a></p>
+<p><b>Author:</b> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es</p>
+<p><b>Date:</b> 01/22/2013</p>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="NA_SinkholeMessage-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="NA_SinkholeMessage.html" title="Message NA_SinkholeMessage" alt="" coords="5,6,155,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="NA_SinkholeMessage-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="NA_SinkholeMessage.html" title="Message NA_SinkholeMessage" alt="" coords="5,6,155,34">
+</map>
+<h3 class="subtitle">Fields:</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>sinkOnlyWhenRouteInTable</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>TRUE indicates that only RREQ for routes that are in routing table are answered as the best route across the sink node.
+A false value indicates that all the sinkhole node will answer to all the RREQ with fake routes.</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sinkholeAttackProbability</td>
+   <td>
+      <i>
+double</i>
+   </td>
+   <td>
+<p>Probability for announcing a fake route when a RREQ is received. Value in [0,1]</p>
+</td>
+</tr>
+<tr class="local">
+   <td>seqnoAdded</td>
+   <td>
+      <i>
+ParPtr</i>
+   </td>
+   <td>
+<p>Sequence number.</p>
+</td>
+</tr>
+<tr class="local">
+   <td>numHops</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>Number of hops.</p>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Message interchanged between sinkhole attack controller and the corresponding hacked
+// modules. In this case NA_AODVUU
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> NA_SinkholeAttack, NA_AODVUU
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_SinkholeMessage</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkOnlyWhenRouteInTable</span><span style="color: #000000; ">; 	</span><span style="color: #808080; font-style: italic; ">// TRUE indicates that only RREQ for routes that are in routing table are answered as the best route across the sink node.
+</span><span style="color: #000000; ">    								</span><span style="color: #808080; font-style: italic; ">// A false value indicates that all the sinkhole node will answer to all the RREQ with fake routes. 
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkholeAttackProbability</span><span style="color: #000000; ">;  	</span><span style="color: #808080; font-style: italic; ">//Probability for announcing a fake route when a RREQ is received. Value in [0,1]
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; "> </span><span style="color: #000000; ">seqnoAdded</span><span style="color: #000000; ">; 					</span><span style="color: #808080; font-style: italic; ">// Sequence number.
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numHops</span><span style="color: #000000; ">;						</span><span style="color: #808080; font-style: italic; ">// Number of hops.
+</span><span style="color: #000000; ">}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

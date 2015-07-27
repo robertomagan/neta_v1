@@ -1,0 +1,25 @@
+var classNA__SinkholeMessage =
+[
+    [ "NA_SinkholeMessage", "classNA__SinkholeMessage.html#a486b014b63b326aabdb6ff0f0400daf7", null ],
+    [ "NA_SinkholeMessage", "classNA__SinkholeMessage.html#ab39b3a6bcaed9376976126303c410c30", null ],
+    [ "~NA_SinkholeMessage", "classNA__SinkholeMessage.html#a63eb380e4f28232d371b15857999fb10", null ],
+    [ "copy", "classNA__SinkholeMessage.html#ac6fec087e55faacbd48776e44653629f", null ],
+    [ "dup", "classNA__SinkholeMessage.html#a9f06a2ae3b11209bbf20d2d3c4c9ddf9", null ],
+    [ "getNumHops", "classNA__SinkholeMessage.html#ac45b59a58c4bab3eb4195f62cb4aba19", null ],
+    [ "getSeqnoAdded", "classNA__SinkholeMessage.html#aecb746a62ab8a403638335353fd7f0b8", null ],
+    [ "getSeqnoAdded", "classNA__SinkholeMessage.html#adb114c1b449128d103e941b637bd178d", null ],
+    [ "getSinkholeAttackProbability", "classNA__SinkholeMessage.html#a70add4616b6be8ed9b3befd34898308b", null ],
+    [ "getSinkOnlyWhenRouteInTable", "classNA__SinkholeMessage.html#ae406cca06e093c28b3457ee5ea1bb8a0", null ],
+    [ "operator=", "classNA__SinkholeMessage.html#ac687dde52dcf00e79ed04ceb4975e6fe", null ],
+    [ "operator==", "classNA__SinkholeMessage.html#adec40330b08f3ee71c96c03ab202065c", null ],
+    [ "parsimPack", "classNA__SinkholeMessage.html#a8ff03d6e41e32531bbcd5e43afa86f8c", null ],
+    [ "parsimUnpack", "classNA__SinkholeMessage.html#ac5716974b900782b662f4adaf62d4816", null ],
+    [ "setNumHops", "classNA__SinkholeMessage.html#aec58d056a61707fc50ba7db9ac7a76ad", null ],
+    [ "setSeqnoAdded", "classNA__SinkholeMessage.html#a75a6d73dd63b92e9ad48145660173171", null ],
+    [ "setSinkholeAttackProbability", "classNA__SinkholeMessage.html#ae094c523404f5af82d3d4429d67fd29b", null ],
+    [ "setSinkOnlyWhenRouteInTable", "classNA__SinkholeMessage.html#ae0b5734f0383fb60008c2acafb183bfe", null ],
+    [ "numHops_var", "classNA__SinkholeMessage.html#a70fdf63c2bbb112624ae8f4dfdab8ffa", null ],
+    [ "seqnoAdded_var", "classNA__SinkholeMessage.html#a0dd473da9bf91d0d04601556ff2d373a", null ],
+    [ "sinkholeAttackProbability_var", "classNA__SinkholeMessage.html#ad44cc0257eee5dd950faa48df9bd3afb", null ],
+    [ "sinkOnlyWhenRouteInTable_var", "classNA__SinkholeMessage.html#af7058cadce49016eae0a3d47da50350a", null ]
+];

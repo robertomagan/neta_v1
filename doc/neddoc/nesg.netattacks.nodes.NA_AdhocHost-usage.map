@@ -1,0 +1,11 @@
+<area shape="rect" id="node1" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="Compound Module NA_AdhocHost" alt="" coords="393,83,505,111">
+<area shape="rect" id="node2" href="ned.IdealChannel.html" title="Channel IdealChannel" alt="" coords="337,161,436,189">
+<area shape="rect" id="node4" href="../../../inet/doc/neddoc/inet.networklayer.IManetRouting.html" title="Module Interface IManetRouting" alt="" coords="460,161,567,189">
+<area shape="rect" id="node6" href="nesg.netattacks.simulations.AttackScenarios.DelayAttackScenario.Delay.html" title="Network Delay" alt="" coords="5,6,77,34">
+<area shape="rect" id="node8" href="nesg.netattacks.simulations.AttackScenarios.DroppingAttackScenario.Dropping.html" title="Network Dropping" alt="" coords="101,6,176,34">
+<area shape="rect" id="node10" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleDelayAttackScenario.SimpleDelay.html" title="Network SimpleDelay" alt="" coords="200,6,296,34">
+<area shape="rect" id="node12" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleDroppingAttackScenario.SimpleDropping.html" title="Network SimpleDropping" alt="" coords="320,6,435,34">
+<area shape="rect" id="node14" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError.html" title="Network SimpleRouteError" alt="" coords="459,6,584,34">
+<area shape="rect" id="node16" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute.html" title="Network SimpleSinkholeNoRoute" alt="" coords="608,6,771,34">
+<area shape="rect" id="node18" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeRoute.html" title="Network SimpleSinkholeRoute" alt="" coords="795,6,941,34">
+<area shape="rect" id="node20" href="nesg.netattacks.simulations.AttackScenarios.SinkholeAttackScenario.Sinkhole.html" title="Network Sinkhole" alt="" coords="965,6,1037,34">

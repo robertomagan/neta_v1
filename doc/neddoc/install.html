@@ -1,0 +1,42 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2>NETA installation guide</h2>
+<p>The MA Framework can be compiled on any platform supported by OMNeT++.</p>
+<p><h3>Prerequisites</h3></p>
+<p>You should have a working OMNeT++ installation, version 4.2.1 or later.</p>
+<p><h3>Installation steps</h3>
+<ol>
+<li> Install OMNeT++. Download the OMNeT++ source code from <a href="http://omnetpp.org">OMNET web site</a>.
+Copy the OMNeT++ archive to the directory where you want to install it and 
+extract it. Then enter the following commands:
+</li></p>
+<p><ul><li>$ ./configure</li>
+	<li>$ make</li></ul></p>
+<p>More details about the installation process can be found in 
+<a href="http://omnetpp.org/doc/omnetpp/InstallGuide.pdf">OMNET install guide</a>.</p>
+<p><li> Import INET 2.1.0. Download INET 2.1.0 
+from <a href="http://omnetpp.org/download/contrib/models/inet-2.1.0-src.tgz">INET web site</a>. 
+Import it as a new project into your workspace (File &gt; Import &gt; General &gt; Existing project 
+into Workspace) and select the option 'Select archive ﬁle'.</li></p>
+<p><li> Copy and override the file ManetRoutingBase.cc from NETA framework located 
+into 'resources/patch/INET_21' folder to 
+'/inet/src/networklayer/manetrouting/base/' into the INET project previously 
+imported. This file fix the bug <a href="http://dev.omnetpp.org/bugs/view.php?id=632">632</a>.</li></p>
+<p><li>Build INET project (right-click on the project and select 'Build project').</li></p>
+<p><li> Import NETwork Attacks framework. The last version of the framework
+can be found in <a href="http://nesg.ugr.es/index.php/en/results">NESG NETA project</a>. Import it proceeding in similar way of the 
+process followed with INET in step 2.</li></p>
+<p><li> Make you sure that NETA project has INET project as project reference 
+(Project &gt; Properties &gt; Project References). Also, the 'MANET Routing' project 
+feature must be selected (Project &gt; Properties &gt; OMNET++ &gt; Project Features)</li></p>
+<p><li>Build NETA project (right-click on the project and select 'Build project').</li></p>
+<p><li> Please check if the NETA framework is working correctly by running any 
+simple simulation escenario located under 'simulations' folder.</li></p>
+<p><li> And finally, enjoy it!</li></p>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

@@ -1,0 +1,360 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Network <i>SimpleRouteError</i></h2>
+<b>Package:</b> nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario<br/><b>File: <a href="simulations-SimpleAttackScenarios-SimpleRouteErrorScenario-SimpleRouteError.ned.html">simulations/SimpleAttackScenarios/SimpleRouteErrorScenario/SimpleRouteError.ned</a></b><br/><p>(no description)</p><img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="NA_AdhocHost" alt="NA_AdhocHost" coords="46,70,158,131">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.FlatNetworkConfigurator.html" title="FlatNetworkConfigurator" alt="FlatNetworkConfigurator" coords="18,278,187,323">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html" title="ChannelControl" alt="ChannelControl" coords="201,274,303,328">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError.html" title="Network SimpleRouteError" alt="" coords="135,6,260,34">
+<area shape="rect" id="node2" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="Compound Module NA_AdhocHost" alt="" coords="5,83,117,111">
+<area shape="rect" id="node4" href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html" title="Simple Module ChannelControl" alt="" coords="141,83,253,111">
+<area shape="rect" id="node6" href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.FlatNetworkConfigurator.html" title="Simple Module FlatNetworkConfigurator" alt="" coords="277,83,440,111">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleRouteErrorScenario.SimpleRouteError.html" title="Network SimpleRouteError" alt="" coords="5,6,131,34">
+</map>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>numHosts</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>isNetwork</td>
+   <td><i></i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>display</td>
+   <td><i>bgb=700,300,grey75</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">node</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.FlatNetworkConfigurator.html">flatNetworkConfigurator</a>.networkAddress</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"192.168.0.0"</td>
+   <td>
+<p>network part of the address (see netmask parameter)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.FlatNetworkConfigurator.html">flatNetworkConfigurator</a>.netmask</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"255.255.0.0"</td>
+   <td>
+<p>host part of addresses are autoconfigured</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch for core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.pMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>20mW</td>
+   <td>
+<p>maximum sending power used for this network (in mW)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.sat</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>-110dBm</td>
+   <td>
+<p>signal attenuation threshold (in dBm)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.alpha</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>2</td>
+   <td>
+<p>path loss coefficient</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.carrierFrequency</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>2.4GHz</td>
+   <td>
+<p>base carrier frequency of all the channels (in Hz)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.numChannels</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>number of radio channels (frequencies)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.propagationModel</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"FreeSpaceModel"</td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #000000; "> </span><span style="color: #000000; ">SimpleRouteError</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numHosts</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;bgb=700,300,grey75&quot;</span><span style="color: #000000; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">node</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numHosts</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">NA_AdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=100,50&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">flatNetworkConfigurator</span><span style="color: #000000; ">: </span><span style="color: #000000; ">FlatNetworkConfigurator</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=100,250&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">channelControl</span><span style="color: #000000; ">: </span><span style="color: #000000; ">ChannelControl</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=250,250;i=misc/sun&quot;</span><span style="color: #000000; ">);
+        }
+    </span><span style="color: #808080; font-style: italic; ">//connections allowunconnected:
+</span><span style="color: #000000; ">}
+
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

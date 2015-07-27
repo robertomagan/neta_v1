@@ -1,0 +1,12 @@
+<features cppSourceRoots="src">
+    <feature
+        id="MANET"
+        name="MANET routing"
+        description = "AdHoc MANET routing support (AODV, BATMAN, DSR, DSDV, DYMO, DYMO_FAU, OLSR)"
+        initiallyEnabled = "true"
+        labels = "routing manet"
+        extraSourceFolders = ""
+        compileFlags = "-DWITH_MANET"
+        linkerFlags = ""
+        />
+</features>

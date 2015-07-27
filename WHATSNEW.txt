@@ -1,0 +1,11 @@
+Recent changes in the NETA Framework
+====================================
+
+NETA-1.0.0 (May, 2013)
+-------------------
+
+Initial stable version:
+
+- Framework.
+- Attacks implemented: IP Dropper attack, Delay attack and AODV Sinkhole attack
+

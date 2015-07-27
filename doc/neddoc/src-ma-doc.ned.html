@@ -1,0 +1,171 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/ma-doc.ned</i></h2>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2003 Andras Varga
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;.
+// 
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 and modified by NESG (Network Engineering and Security Group), http://nesg.ugr.es,
+// - Gabriel Maci&aacute; Fern&aacute;ndez (gmacia@ugr.es)
+// - Leovigildo S&aacute;nchez Casado (sancale@ugr.es)
+// - Rafael A. Rodr&iacute;guez G&oacute;mez (rodgom@ugr.es)
+// - Roberto Mag&aacute;n Carri&oacute;n (rmagan@ugr.es)
+// - Pedro Garc&iacute;a Teodoro (pgteodor@ugr.es)
+// - Jos&eacute; Camacho P&aacute;ez (josecamacho@ugr.es)
+// - Jes&uacute;s E. D&iacute;az Verdejo (jedv@ugr.es)
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #808080; font-style: italic; ">// </span><span style="color: #000080; ">@page</span><span style="color: #808080; font-style: italic; "> whatsnew.html, What's New
+//
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+// &lt;nohtml&gt;
+// @include ../WHATSNEW
+// &lt;/nohtml&gt;
+// </span><span style="color: #800000; ">&lt;/pre&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// </span><span style="color: #000080; ">@page</span><span style="color: #808080; font-style: italic; "> install.html, NETA installation guide
+//
+//The MA Framework can be compiled on any platform supported by OMNeT++.
+//
+//</span><span style="color: #800000; ">&lt;h3&gt;</span><span style="color: #808080; font-style: italic; ">Prerequisites</span><span style="color: #800000; ">&lt;/h3&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//You should have a working OMNeT++ installation, version 4.2.1 or later.
+//
+//</span><span style="color: #800000; ">&lt;h3&gt;</span><span style="color: #808080; font-style: italic; ">Installation steps</span><span style="color: #800000; ">&lt;/h3&gt;</span><span style="color: #808080; font-style: italic; ">
+//</span><span style="color: #800000; ">&lt;ol&gt;</span><span style="color: #808080; font-style: italic; ">
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Install OMNeT++. Download the OMNeT++ source code from </span><span style="color: #800000; ">&lt;a href=&quot;http://omnetpp.org&quot;&gt;</span><span style="color: #808080; font-style: italic; ">OMNET web site</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//Copy the OMNeT++ archive to the directory where you want to install it and 
+//extract it. Then enter the following commands:
+//</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//	</span><span style="color: #800000; ">&lt;ul&gt;&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">$ ./configure</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//	</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">$ make</span><span style="color: #800000; ">&lt;/li&gt;&lt;/ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//More details about the installation process can be found in 
+//</span><span style="color: #800000; ">&lt;a href=&quot;http://omnetpp.org/doc/omnetpp/InstallGuide.pdf&quot;&gt;</span><span style="color: #808080; font-style: italic; ">OMNET install guide</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Import INET 2.1.0. Download INET 2.1.0 
+//from </span><span style="color: #800000; ">&lt;a href=&quot;http://omnetpp.org/download/contrib/models/inet-2.1.0-src.tgz&quot;&gt;</span><span style="color: #808080; font-style: italic; ">INET web site</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">. 
+//Import it as a new project into your workspace (File &gt; Import &gt; General &gt; Existing project 
+//into Workspace) and select the option 'Select archive &#64257;le'.</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Copy and override the file ManetRoutingBase.cc from NETA framework located 
+//into 'resources/patch/INET_21' folder to 
+//'/inet/src/networklayer/manetrouting/base/' into the INET project previously 
+//imported. This file fix the bug </span><span style="color: #800000; ">&lt;a href=&quot;http://dev.omnetpp.org/bugs/view.php?id=632&quot;&gt;</span><span style="color: #808080; font-style: italic; ">632</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">Build INET project (right-click on the project and select 'Build project').</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Import NETwork Attacks framework. The last version of the framework
+//can be found in </span><span style="color: #800000; ">&lt;a href=&quot;http://nesg.ugr.es/index.php/en/results&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NESG NETA project</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">. Import it proceeding in similar way of the 
+//process followed with INET in step 2.</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Make you sure that NETA project has INET project as project reference 
+//(Project &gt; Properties &gt; Project References). Also, the 'MANET Routing' project 
+//feature must be selected (Project &gt; Properties &gt; OMNET++ &gt; Project Features)</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">Build NETA project (right-click on the project and select 'Build project').</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> Please check if the NETA framework is working correctly by running any 
+//simple simulation escenario located under 'simulations' folder.</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+//</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; "> And finally, enjoy it!</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// </span><span style="color: #000080; ">@page</span><span style="color: #808080; font-style: italic; "> ma-architecture.html, NETA framework architecture
+//
+// 	The NETA framework uses the same idea as OMNeT++, i.e., modules that communicate by message passing.
+//
+//	The general idea of the present framework is to develop new nodes which can strike attacks.
+//	In order to do this, the implemented attacks are managed in what we called attack controllers.
+//	These controllers affect to one or more modules of INET framework through control
+//	messages sending parameters of the developed attacks. Therefore, these modules should be
+//	conveniently modi&#64257;ed to obey the orders of the control messages. These modi&#64257;ed modules
+//	are named hacked modules. The creation of an attacker can be summarized as: </span><span style="color: #800000; ">&lt;i&gt;</span><span style="color: #808080; font-style: italic; "> (i)</span><span style="color: #800000; ">&lt;/i&gt;</span><span style="color: #808080; font-style: italic; ">  add to
+//	the associated </span><span style="color: #800000; ">&lt;code&gt;</span><span style="color: #808080; font-style: italic; ">.ned</span><span style="color: #800000; ">&lt;/code&gt;</span><span style="color: #808080; font-style: italic; ">  &#64257;le the controllers related with the attacks to be executed, </span><span style="color: #800000; ">&lt;i&gt;</span><span style="color: #808080; font-style: italic; "> (ii)</span><span style="color: #800000; ">&lt;/i&gt;</span><span style="color: #808080; font-style: italic; "> create the
+//	associate control messages and, </span><span style="color: #800000; ">&lt;i&gt;</span><span style="color: #808080; font-style: italic; "> (iii)</span><span style="color: #800000; ">&lt;/i&gt;</span><span style="color: #808080; font-style: italic; "> substitute the modules these attack controllers need to use
+//	by the correspondent hacked modules.
+//
+//	In Fig. 1 we can see the comparison between a normal node and an attacker node. The
+//	normal node is composed of simple and compound modules which communicate between them.
+//	The attacker node is composed of the same number of modules and its communications and the
+//	attack controller modules. However, some modules have been substituted by the correspondent
+//	hacked modules to allow the execution of the attacks trigger by the included attack controllers.
+//
+//	</span><span style="color: #800000; ">&lt;table border=&quot;0&quot;&gt;</span><span style="color: #808080; font-style: italic; ">
+//		</span><span style="color: #800000; ">&lt;caption align=&quot;bottom&quot; style=&quot;text-aling: center; font-size: 10px; font-weight: bold;&quot;&gt;</span><span style="color: #808080; font-style: italic; "> Fig. 1:  Scheme comparison between an original node and its attacker in NETwork Attacks frame-work. </span><span style="color: #800000; ">&lt;/caption&gt;</span><span style="color: #808080; font-style: italic; "> 
+//		</span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;td&gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;img src=&quot;../resources/img/schemeComparison.png&quot; width=&quot;75%&quot; &gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; "> 
+//  </span><span style="color: #800000; ">&lt;/table&gt;</span><span style="color: #808080; font-style: italic; "> 
+//   
+//
+//	In Fig. 2 we present an example of the module that compose a normal node </span><span style="color: #800000; ">&lt;code&gt;</span><span style="color: #808080; font-style: italic; "> (AdhocHost)</span><span style="color: #800000; ">&lt;/code&gt;</span><span style="color: #808080; font-style: italic; ">  and
+//	its correspondent attacker node </span><span style="color: #800000; ">&lt;code&gt;</span><span style="color: #808080; font-style: italic; ">(MA_AdhocHost)</span><span style="color: #800000; ">&lt;/code&gt;</span><span style="color: #808080; font-style: italic; "> .
+//
+//	</span><span style="color: #800000; ">&lt;table border=&quot;0&quot;&gt;</span><span style="color: #808080; font-style: italic; ">
+//		</span><span style="color: #800000; ">&lt;caption align=&quot;bottom&quot; style=&quot;text-aling: center; font-size: 10px; font-weight: bold;&quot;&gt;</span><span style="color: #808080; font-style: italic; "> Fig. 2:  Real comparison between an original AdhocHost and MA AdhocHost.</span><span style="color: #800000; ">&lt;/caption&gt;</span><span style="color: #808080; font-style: italic; "> 
+//		</span><span style="color: #800000; ">&lt;tr&gt;</span><span style="color: #808080; font-style: italic; "> 
+//			</span><span style="color: #800000; ">&lt;td&gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;img src=&quot;../resources/img/adhoc.png&quot; width=&quot;85%&quot; &gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; "> 
+//			</span><span style="color: #800000; ">&lt;td&gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;img src=&quot;../resources/img/MAAdhoc.png&quot; width=&quot;85%&quot; &gt;</span><span style="color: #808080; font-style: italic; "> </span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">
+//		</span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; "> 
+//		</span><span style="color: #800000; ">&lt;tr &gt;</span><span style="color: #808080; font-style: italic; "> 
+//			</span><span style="color: #800000; ">&lt;td style=&quot;text-aling: center; font-size: 10px; &quot;&gt;</span><span style="color: #808080; font-style: italic; "> (a)  Modules of AdhocHost node </span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; "> 
+//			</span><span style="color: #800000; ">&lt;td style=&quot;text-aling: center; font-size: 10px; &quot;&gt;</span><span style="color: #808080; font-style: italic; "> (b)  Modules of MA AdhocHost node</span><span style="color: #800000; ">&lt;/td&gt;</span><span style="color: #808080; font-style: italic; ">
+//		</span><span style="color: #800000; ">&lt;/tr&gt;</span><span style="color: #808080; font-style: italic; ">
+//  </span><span style="color: #800000; ">&lt;/table&gt;</span><span style="color: #808080; font-style: italic; "> 
+//
+//  </span><span style="color: #800000; ">&lt;h3&gt;</span><span style="color: #808080; font-style: italic; ">Folder structure</span><span style="color: #800000; ">&lt;/h3&gt;</span><span style="color: #808080; font-style: italic; "> 
+//
+//	The folders of this framework has a speci&#64257;c structure we describe in the following (we only
+//	mention the speci&#64257;c folders of this framework excluding the folders in common with OMNeT++):
+//  
+//
+//	</span><span style="color: #800000; ">&lt;ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//  	</span><span style="color: #800000; ">&lt;li&gt;&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">src:</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; "> 
+//       </span><span style="color: #800000; ">&lt;ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//       	</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">attacks : In this folder are located the attack controllers and the control messages used by these
+//								controllers to communicate with the associated hacked modules.
+//			</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; "> 
+//         	</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">hackedmodules : Here it can be found all the modi&#64257;ed modules to be able of triggering the implemented
+//									attacks by this release, i.e., the hacked modules.
+//			</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//			</span><span style="color: #800000; ">&lt;li&gt;</span><span style="color: #808080; font-style: italic; ">nodes : In this folder it can be found all the new hosts that are a slight modi&#64257;cation of
+//							the existent ones in INET framework. They have inside of them the
+//							correspondent hacked modules.
+//			</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//       </span><span style="color: #800000; ">&lt;/ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//		</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//  	</span><span style="color: #800000; ">&lt;li&gt;&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">simulations:</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//			Here the simulations to demonstrate the use of the implemented attacks by this framework
+//			are present.
+//		</span><span style="color: #800000; ">&lt;/li&gt;</span><span style="color: #808080; font-style: italic; ">
+//	</span><span style="color: #800000; ">&lt;/ul&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// For more information about the NETA framework architecture, please read the </span><span style="color: #800000; ">&lt;a href=&quot;../resources/frameworkDescription.pdf&quot;&gt;</span><span style="color: #808080; font-style: italic; ">NETA Framework manual</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//
+</span><span style="color: #000000; ">
+
+
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">nesg</span><span style="color: #000000; ">.</span><span style="color: #000000; ">netattacks</span><span style="color: #000000; ">;
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

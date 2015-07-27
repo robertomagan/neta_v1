@@ -1,0 +1,268 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>NA_UDPBasicBurst</i></h2>
+<b>Package:</b> nesg.netattacks.hackedmodules.applications.udpapp<br/><b>File: <a href="src-hackedmodules-applications-udpapp-NA_UDPBasicBurst.ned.html">src/hackedmodules/applications/udpapp/NA_UDPBasicBurst.ned</a></b><br/><p><a href="../doxy/classNA__UDPBasicBurst.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<img src="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst.html" title="NA_UDPBasicBurst" alt="NA_UDPBasicBurst" coords="0,31,175,74">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst.html" title="Simple Module NA_UDPBasicBurst" alt="" coords="5,6,147,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.hackedmodules.applications.udpapp.NA_UDPBasicBurst.html" title="Simple Module NA_UDPBasicBurst" alt="" coords="5,83,147,111">
+<area shape="rect" id="node2" href="../../../inet/doc/neddoc/inet.applications.udpapp.UDPBasicBurst.html" title="Simple Module UDPBasicBurst" alt="" coords="19,6,133,34">
+</map>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="../../../inet/doc/neddoc/inet.applications.udpapp.UDPBasicBurst.html">UDPBasicBurst</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Sends UDP packets to the given IP address(es) in bursts, or acts as a
+packet sink. Compatible with both IPv4 and IPv6.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>destAddresses</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td></td>
+   <td>
+<p>space-separated list of destination IP addresses, can be empty;
+see module description for possibilities</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>chooseDestAddrMode</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td></td>
+   <td>
+<p>when to change the destination address</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>destAddrRNG</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>random generator ID for selecting a destination address</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>localPort</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>-1</td>
+   <td>
+<p>local UDP port number (-1: use ephemeral port)</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>destPort</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>remote UDP port number</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>application start time (start of the first burst)</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>stopTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>-1s</td>
+   <td>
+<p>application stop time (no packets are sent after this time); a negative or zero value means no limit</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>messageLength</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>length of messages to generate, in bytes</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>burstDuration</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>burst duration time (zero not allowed)</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>sleepDuration</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>time between bursts (zero allowed)</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>sendInterval</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>time between messages during bursts; usually a random value, e.g. 0.1s+uniform(-0.001s,0.001s); zero not allowed</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>delayLimit</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>maximum accepted delay for a packet; packets with a bigger delay are discarded (dropped), zero value means no limit</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/app,white;i2=status/green</i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>class</td>
+   <td><i>NA_UDPBasicBurst</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>udpIn</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td></td>
+</tr>
+<tr class="inherited">
+   <td>udpOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Signals:</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+<tr class="local">
+   <td>hopCount</td>
+   <td><i>
+long   </i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Statistics:</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+<tr class="local">
+   <td>hopCount</td>
+   <td>Hop count</td>
+   <td></td>
+   <td>last</td>
+   <td></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_UDPBasicBurst</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">UDPBasicBurst</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+
+        </span><span style="color: #0000ff; font-style: italic; ">//# Normal parameters
+</span><span style="color: #000000; ">        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=block/app,white;i2=status/green&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@class</span><span style="color: #000000; ">(</span><span style="color: #000000; ">NA_UDPBasicBurst</span><span style="color: #000000; ">);
+
+        </span><span style="color: #0000ff; font-style: italic; ">//# Hop count statistics
+</span><span style="color: #000000; ">        </span><span style="color: #000000; font-weight: bold; ">@signal</span><span style="color: #000000; ">[</span><span style="color: #000000; ">hopCount</span><span style="color: #000000; ">](</span><span style="color: #000000; ">type</span><span style="color: #000000; ">=</span><span style="color: #000000; ">long</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// Signal for hop count
+</span><span style="color: #000000; ">        </span><span style="color: #000000; font-weight: bold; ">@statistic</span><span style="color: #000000; ">[</span><span style="color: #000000; ">hopCount</span><span style="color: #000000; ">](</span><span style="color: #000000; ">title</span><span style="color: #000000; ">=</span><span style="color: #008000; ">&quot;Hop count&quot;</span><span style="color: #000000; ">; </span><span style="color: #000000; ">record</span><span style="color: #000000; ">=</span><span style="color: #000000; ">last</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// Record the hop count
+</span><span style="color: #000000; ">
+}
+
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

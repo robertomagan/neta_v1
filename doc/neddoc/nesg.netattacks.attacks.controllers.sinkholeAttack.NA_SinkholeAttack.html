@@ -1,0 +1,212 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>NA_SinkholeAttack</i></h2>
+<b>Package:</b> nesg.netattacks.attacks.controllers.sinkholeAttack<br/><b>File: <a href="src-attacks-controllers-sinkholeAttack-NA_SinkholeAttack.ned.html">src/attacks/controllers/sinkholeAttack/NA_SinkholeAttack.ned</a></b><br/><p><a href="../doxy/classNA__SinkholeAttack.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p><a href="nesg.netattacks.simulations.AttackScenarios.SinkholeAttackScenario.Sinkhole.html">Sinkhole</a> attack controller simple module. Three parameter controls the attack behavior:
+the attack probability, if the route requested is knowed by the attacker or not and the
+the sequence number generated.</p>
+<p><b>See also:</b> <a href="nesg.netattacks.attacks.controllers.NA_Attack.html">NA_Attack</a>, <a href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html">NA_AODVUU</a></p>
+<p><b>Author:</b> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es</p>
+<p><b>Date:</b> 01/22/2013</p>
+<img src="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html" title="NA_SinkholeAttack" alt="NA_SinkholeAttack" coords="0,31,174,71">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html" title="Simple Module NA_SinkholeAttack" alt="" coords="19,83,155,111">
+<area shape="rect" id="node2" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="Compound Module NA_AttackerAdhocHost" alt="" coords="5,6,168,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html" title="Simple Module NA_SinkholeAttack" alt="" coords="5,83,141,111">
+<area shape="rect" id="node2" href="nesg.netattacks.attacks.controllers.NA_Attack.html" title="Simple Module NA_Attack" alt="" coords="31,6,116,34">
+</map>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.attacks.controllers.NA_Attack.html">NA_Attack</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Base simple module inherited from all attacks modules.
+Is in charge of set the schedulling parameters, attack activation or not, and what
+is the type of the attack.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">NA_AttackerAdhocHost</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Attacker wireless ad hoc host. Modificated from WirelessHost module. 
+Redefined from INET framework and used as attacker host.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>attackType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"sinkhole"</td>
+   <td>
+<p>String with the type of attack</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>active</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Indicates if this attack is active or not in the node</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Timestamp to start the attack</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>endTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Time instant at which the attack ends, 0 means that the attack will not end during the simulation.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sinkholeAttackProbability</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Probability of answering a RREQ message with a fake route. Range [0,1].</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sinkOnlyWhenRouteInTable</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>TRUE: Send fake answers to RREQ messages only when requested routes are really in routing table of sinkhole node.
+FALSE: Send fake answers for any RREQ messages arriving at the sinkhole node.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>seqnoAdded</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>uniform(20, 30)</td>
+   <td>
+<p>Fake sequence number generated.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>numHops</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Fake number of hops.</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=misc/cloud3,red,100;is=l</i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>class</td>
+   <td><i>NA_SinkholeAttack</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Sinkhole attack controller simple module. Three parameter controls the attack behavior:
+// the attack probability, if the route requested is knowed by the attacker or not and the
+// the sequence number generated.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> NA_Attack, NA_AODVUU
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_SinkholeAttack</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_Attack</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; font-weight: bold; ">@class</span><span style="color: #000000; ">(</span><span style="color: #000000; ">NA_SinkholeAttack</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=misc/cloud3,red,100;is=l&quot;</span><span style="color: #000000; ">);
+
+        </span><span style="color: #000000; ">attackType</span><span style="color: #000000; "> = </span><span style="color: #008000; ">&quot;sinkhole&quot;</span><span style="color: #000000; ">;  </span><span style="color: #808080; font-style: italic; ">//Should correspond with the tag located in the hackedModules.ned. e.g. @sinkhole for this attack.       
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkholeAttackProbability</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">//Probability of answering a RREQ message with a fake route. Range [0,1].
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkOnlyWhenRouteInTable</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">//TRUE: Send fake answers to RREQ messages only when requested routes are really in routing table of sinkhole node.
+</span><span style="color: #000000; ">														</span><span style="color: #808080; font-style: italic; ">//FALSE: Send fake answers for any RREQ messages arriving at the sinkhole node.
+</span><span style="color: #000000; ">
+        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">seqnoAdded</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #800080; font-weight: bold; ">uniform</span><span style="color: #000000; ">(</span><span style="color: #008000; ">20</span><span style="color: #000000; ">, </span><span style="color: #008000; ">30</span><span style="color: #000000; ">)); 	</span><span style="color: #808080; font-style: italic; ">// Fake sequence number generated.
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numHops</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);						</span><span style="color: #808080; font-style: italic; ">// Fake number of hops.
+</span><span style="color: #000000; ">}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

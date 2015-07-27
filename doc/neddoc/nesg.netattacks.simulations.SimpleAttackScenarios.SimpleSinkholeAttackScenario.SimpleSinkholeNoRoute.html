@@ -1,0 +1,1327 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Network <i>SimpleSinkholeNoRoute</i></h2>
+<b>Package:</b> nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario<br/><b>File: <a href="simulations-SimpleAttackScenarios-SimpleSinkholeAttackScenario-SimpleSinkholeNoRoute.ned.html">simulations/SimpleAttackScenarios/SimpleSinkholeAttackScenario/SimpleSinkholeNoRoute.ned</a></b><br/><p>(no description)</p><img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="NA_AdhocHost" alt="NA_AdhocHost" coords="80,320,124,381">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="NA_AdhocHost" alt="NA_AdhocHost" coords="131,520,174,581">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="NA_AdhocHost" alt="NA_AdhocHost" coords="381,320,424,381">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="NA_AdhocHost" alt="NA_AdhocHost" coords="330,520,374,581">
+<area shape="rect" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="NA_AttackerAdhocHost" alt="NA_AttackerAdhocHost" coords="224,170,281,231">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html" title="IPv4NetworkConfigurator" alt="IPv4NetworkConfigurator" coords="40,48,124,93">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html" title="ChannelControl" alt="ChannelControl" coords="31,94,133,148">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute.html" title="Network SimpleSinkholeNoRoute" alt="" coords="252,6,415,34">
+<area shape="rect" id="node2" href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html" title="Simple Module IPv4NetworkConfigurator" alt="" coords="5,83,173,111">
+<area shape="rect" id="node4" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="Compound Module NA_AdhocHost" alt="" coords="197,83,309,111">
+<area shape="rect" id="node6" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="Compound Module NA_AttackerAdhocHost" alt="" coords="333,83,496,111">
+<area shape="rect" id="node8" href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html" title="Simple Module ChannelControl" alt="" coords="520,83,632,111">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.simulations.SimpleAttackScenarios.SimpleSinkholeAttackScenario.SimpleSinkholeNoRoute.html" title="Network SimpleSinkholeNoRoute" alt="" coords="5,6,168,34">
+</map>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>isNetwork</td>
+   <td><i></i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>display</td>
+   <td><i>bgb=600,600,grey75</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeA</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeB</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeC</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AdhocHost.html">nodeD</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.procDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.timeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.multicastTimeToLive</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>32</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.fragmentTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>60s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">ip</a>.forceBroadcast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>number seconds ARP waits between retries to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.retryCount</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3</td>
+   <td>
+<p>number of times ARP will attempt to resolve an IPv4 address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.cacheTimeout</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>120s</td>
+   <td>
+<p>number seconds unused entries in the cache will time out</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html">networkLayer</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html">arp</a>.globalARP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.routerId</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.ipv4.RoutingTable.html">routingTable</a>.forwardMulticast</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>turns multicast forwarding on/off</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>whether to display IP addresses on links</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>whether to log packets on the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>the PCAP file to be written</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>65535</td>
+   <td>
+<p>maximum number of bytes to record per packet</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>enable dump of frames with hasBitError</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"wlan[*] eth[*] ppp[*] ext[*]"</td>
+   <td>
+<p>space-separated list of sibling module names to listen on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetSentToLower"</td>
+   <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="../../../inet/doc/neddoc/inet.util.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"packetReceivedFromLower"</td>
+   <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.droppingAttack.NA_DroppingAttack.html">droppingAttack</a>.active</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Indicates if this attack is active or not in the node</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.droppingAttack.NA_DroppingAttack.html">droppingAttack</a>.startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Timestamp to start the attack</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.droppingAttack.NA_DroppingAttack.html">droppingAttack</a>.endTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Time instant at which the attack ends, 0 means that the attack will not end during the simulation.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.droppingAttack.NA_DroppingAttack.html">droppingAttack</a>.droppingAttackProbability</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Probability of dropping a packet. Range [0,1].</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html">delayAttack</a>.active</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Indicates if this attack is active or not in the node</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html">delayAttack</a>.startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Timestamp to start the attack</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html">delayAttack</a>.endTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Time instant at which the attack ends, 0 means that the attack will not end during the simulation.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html">delayAttack</a>.delayAttackProbability</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Probability of delaying a packet. Range [0,1].</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.delayAttack.NA_DelayAttack.html">delayAttack</a>.delayAttackValue</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>normal(1s, 0.1s)</td>
+   <td>
+<p>Random delay time</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.active</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Indicates if this attack is active or not in the node</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.startTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Timestamp to start the attack</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.endTime</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Time instant at which the attack ends, 0 means that the attack will not end during the simulation.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.sinkholeAttackProbability</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Probability of answering a RREQ message with a fake route. Range [0,1].</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.sinkOnlyWhenRouteInTable</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>TRUE: Send fake answers to RREQ messages only when requested routes are really in routing table of sinkhole node.
+FALSE: Send fake answers for any RREQ messages arriving at the sinkhole node.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.seqnoAdded</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>uniform(20, 30)</td>
+   <td>
+<p>Fake sequence number generated.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html">attacker</a>.<a href="nesg.netattacks.attacks.controllers.sinkholeAttack.NA_SinkholeAttack.html">sinkholeAttack</a>.numHops</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Fake number of hops.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.config</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td>xml("<config><interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/></config>")</td>
+   <td>
+<p>XML configuration parameters for IP address assignment and adding manual routes</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.assignAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>assign IP addresses to all interfaces in the network</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.assignDisjunctSubnetAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>avoid using the same address prefix and netmask on different links when assigning IP addresses to interfaces</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.addStaticRoutes</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>add static routes to the routing tables of all nodes to route to all destination interfaces (only where applicable; turn off when config file contains manual routes)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.addDefaultRoutes</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>add default routes if all routes from a source node go through the same gateway (used only if addStaticRoutes is true)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.addSubnetRoutes</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>add subnet routes instead of destination interface routes (only where applicable; used only if addStaticRoutes is true)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.optimizeRoutes</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>optimize routing tables by merging routes, the resulting routing table might route more packets than the original (used only if addStaticRoutes is true)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.dumpTopology</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>print extracted network topology to the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.dumpAddresses</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>print assigned IP addresses for all interfaces to the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.dumpRoutes</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>print configured and optimized routing tables for all nodes to the module output</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html">configurator</a>.dumpConfig</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>write configuration into the given config file that can be fed back to speed up subsequent runs (network configurations)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch for core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.pMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>20mW</td>
+   <td>
+<p>maximum sending power used for this network (in mW)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.sat</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>-110dBm</td>
+   <td>
+<p>signal attenuation threshold (in dBm)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.alpha</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>2</td>
+   <td>
+<p>path loss coefficient</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.carrierFrequency</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>2.4GHz</td>
+   <td>
+<p>base carrier frequency of all the channels (in Hz)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.numChannels</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>number of radio channels (frequencies)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html">channelControl</a>.propagationModel</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"FreeSpaceModel"</td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #000000; "> </span><span style="color: #000000; ">SimpleSinkholeNoRoute</span><span style="color: #000000; ">
+{
+    </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;bgb=600,600,grey75&quot;</span><span style="color: #000000; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">nodeA</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_AdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=100,300&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">nodeB</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_AdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=150,500&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">nodeC</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_AdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=400,300&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">nodeD</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_AdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=350,500&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">attacker</span><span style="color: #000000; ">: </span><span style="color: #000000; ">NA_AttackerAdhocHost</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=250,150&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">configurator</span><span style="color: #000000; ">: </span><span style="color: #000000; ">IPv4NetworkConfigurator</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=80,20&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">channelControl</span><span style="color: #000000; ">: </span><span style="color: #000000; ">ChannelControl</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=80,70;i=misc/sun&quot;</span><span style="color: #000000; ">);
+        }
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

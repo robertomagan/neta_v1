@@ -1,0 +1,73 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Msg File <i>src/attacks/controlmessages/delayAttack/NA_DelayMessage.msg</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="NA_DelayMessage.html">NA_DelayMessage</a>
+   </td>
+   <td>
+<i>message</i>
+   </td>
+   <td>
+
+<p>Message interchanged between delay attack controller and the corresponding hacked
+modules. In this case <a href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html">NA_IPv4</a></p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 by NESG (Network Engineering and Security Group), http://nesg.ugr.es
+// Dept. of Signal Theory, Telematics and Communications
+// University of Granada
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #000000; "> {{
+#</span><span style="color: #000000; ">include</span><span style="color: #000000; "> </span><span style="color: #008000; ">&quot;omnetpp.h&quot;</span><span style="color: #000000; ">
+</span><span style="color: #000000; ">typedef</span><span style="color: #000000; "> </span><span style="color: #000000; ">cPar</span><span style="color: #000000; "> *</span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; ">;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">noncobject</span><span style="color: #000000; "> </span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; ">;
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Message interchanged between delay attack controller and the corresponding hacked
+// modules. In this case NA_IPv4
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> NA_DelayAttack, NA_IPv4
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_DelayMessage</span><span style="color: #000000; "> {
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">delayAttackProbability</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// Attack probability
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">ParPtr</span><span style="color: #000000; "> </span><span style="color: #000000; ">delayAttackValue</span><span style="color: #000000; ">;  </span><span style="color: #808080; font-style: italic; ">// Implemented as a pointer to cPar to allow the use of random distributions for the delay value
+</span><span style="color: #000000; ">
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

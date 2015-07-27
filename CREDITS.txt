@@ -1,0 +1,12 @@
+The NETA framework is developed by NESG (Network Engineering & Security Group) thats belong to the
+Dept. of Signal Theory, Telematics and Communications of the University of Granada.
+
+Principals contributors, developers and maintainers:
+
+- Gabriel Maciá Fernández (gmacia@ugr.es), project head and developer
+- Leovigildo Sánchez Casado  (sancale@ugr.es), developer.
+- Rafael Rodríguez Gómez  (rodgom@ugr.es), developer.
+- Roberto Magán Carrión  (rmagan@ugr.es), developer.
+- Pedro García Teodoro (pgteodor@ugr.es), developer.
+- José Camacho Páez (josecamacho@ugr.es), developer.
+- Jesús E. Díaz Verdejo (jedv@ugr.es), developer.

@@ -1,0 +1,520 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>NA_AODVUU</i></h2>
+<b>Package:</b> nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv<br/><b>File: <a href="src-hackedmodules-networklayer-manetrouting-aodv-NA_AODVUU.ned.html">src/hackedmodules/networklayer/manetrouting/aodv/NA_AODVUU.ned</a></b><br/><p><a href="../doxy/classNA__AODVUU.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p>AODVUU hacked module.</p>
+<p>Allowed attacks:</p>
+  <ul><li><a href="nesg.netattacks.simulations.AttackScenarios.SinkholeAttackScenario.Sinkhole.html">Sinkhole</a></li></ul>
+<p><b>Author:</b> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es</p>
+<p><b>Date:</b> 01/22/2013</p>
+<img src="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html" title="NA_AODVUU" alt="NA_AODVUU" coords="0,31,137,74">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html" title="Simple Module NA_AODVUU" alt="" coords="5,6,112,34">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<img src="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="nesg.netattacks.hackedmodules.networklayer.manetrouting.aodv.NA_AODVUU.html" title="Simple Module NA_AODVUU" alt="" coords="63,83,169,111">
+<area shape="rect" id="node2" href="../../../inet/doc/neddoc/inet.networklayer.manetrouting.base.BaseRouting.html" title="Simple Module BaseRouting" alt="" coords="5,6,101,34">
+<area shape="rect" id="node4" href="../../../inet/doc/neddoc/inet.networklayer.IManetRouting.html" title="Module Interface IManetRouting" alt="" coords="125,6,232,34">
+</map>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="../../../inet/doc/neddoc/inet.networklayer.manetrouting.base.BaseRouting.html">BaseRouting</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>Base module for mobile routing protocols</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="inherited">
+   <td>excludedInterfaces</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>list of interfaces excluded by the manet routing protocol</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>interfaces</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"prefix(wlan)"</td>
+   <td>
+<p>list of routing interfaces were the routing protocol is active, the
+prefix(namei) indicate all the interfaces with "namei" in his names</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>usetManetLabelRouting</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>the routing entries are marked IPv4Route::MANET, this label force an exact search with independent of the mask</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>useICMP</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>By default the module use the ICMP but it's necessary to activate with the method setSendToICMP(true)</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>setICMPSourceAddress</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>set the datagram source address if the address is undefined to the address of node
+This parameter allow that the ICMP messages could arrive to the source applications</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>manetPurgeRoutingTables</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>   </td>
+</tr>
+<tr class="inherited">
+   <td>autoassignAddress</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>assign IP adresses automatically to the interfaces</p>
+   </td>
+</tr>
+<tr class="inherited">
+   <td>autoassignAddressBase</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"10.0.0.0"</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>log_to_file</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>dump AODV log files (non RFC parameter)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>hello_jittering</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>add a +-50ms jitter to the hello interval (non RFC parameter)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>optimized_hellos</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>do not send hello messages if there are no active routes (non RFC parameter)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>expanding_ring_search</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>use expanding ring search (section 6.4)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>local_repair</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>allow the routes to be locally repaired if a node detects link failure (section 6.12)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>rreq_gratuitous</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>force gratuitous flag on all RREQs (section 6.6.3)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>dump debug messages to file (non RFC parameter)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>rt_log_interval</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>periodically log routing table to routing table logfile, value is the interval in msecs (0 = off)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>unidir_hack</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>detect and avoid unidirectional links (boolean) (section 6.8)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>receive_n_hellos</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>receive N HELLOs before treating as neighbor (non RFC parameter)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>wait_on_reboot</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>wait after reboot and gather routes before sending out routing info (section 6.13)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>ratelimit</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>do not send out more than 10 RERR or RREQ (boolean) (section 6.3 abd 6.11)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>active_timeout</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>3000</td>
+   <td>
+<p>active route timeout in (ms) (section 6.2 and 6.7)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>llfeedback</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>allow layer2 link-detection instead of sending hello messages (section 6.10)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>internet_gw_mode</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>NOT SUPPORTED  (boolean) (run this node as an internet gateway (non RFC parameter))</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>internet_gw_address</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"0.0.0.0"</td>
+   <td>
+<p>NOT SUPPORTED</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>EqualDelay</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>add a jitter to broadcast operations (RREQ, HELLO broadcast) (non RFC - omnetpp specific)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>broadcastDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>uniform(0s,0.005s)</td>
+   <td>
+<p>the delay added to broadcast operations if EqualDelay is set (used to model processing time)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>unicastDelay</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>a delay added to unicast messaged (i.e. data packet forwarding) (used to model processing time)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>UseIndex</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>use the interface index instead the ip to identify the interface</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>useHover</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>costStatic</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>costMobile</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>4</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>isRoot</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Proactive RREQ</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>proactiveRreqTimeout</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>5000</td>
+   <td>
+<p>5 seconds</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>propagateProactive</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>Proactive feedback</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>checkNextHop</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>PublicRoutingTables</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=,red;i2=status/excl3</i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>sinkhole</td>
+   <td><i></i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>class</td>
+   <td><i>NA_AODVUU</i></td>
+   <td>
+</td>
+</tr>
+<tr>
+   <td>reactive</td>
+   <td><i></i></td>
+   <td>
+<p>IP module will send control messages when no route is present to the destination</p>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>from_ip</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td></td>
+</tr>
+<tr class="local">
+   <td>to_ip</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// AODVUU hacked module.
+//
+// Allowed attacks:
+// - Sinkhole
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Gabriel Maci&aacute; Fern&aacute;ndez, gmacia@ugr.es
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 01/22/2013
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #000000; "> </span><span style="color: #000000; ">NA_AODVUU</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">BaseRouting</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IManetRouting</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+
+        </span><span style="color: #0000ff; font-style: italic; ">//#NETATTACKS: Labels for the potential attacks that affect this module
+</span><span style="color: #000000; ">        </span><span style="color: #0000ff; font-style: italic; ">//#NA_SINKHOLE: labe for sinkhole attack
+</span><span style="color: #000000; ">        </span><span style="color: #000000; font-weight: bold; ">@sinkhole</span><span style="color: #000000; ">;	</span><span style="color: #808080; font-style: italic; ">// Sinkhole attack in AODV       
+</span><span style="color: #000000; ">        </span><span style="color: #808080; font-style: italic; ">// --------------------------------------------------------------------
+</span><span style="color: #000000; ">
+        </span><span style="color: #0000ff; font-style: italic; ">//# Normal parameters.
+</span><span style="color: #000000; ">        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=,red;i2=status/excl3&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@class</span><span style="color: #000000; ">(</span><span style="color: #000000; ">NA_AODVUU</span><span style="color: #000000; ">);
+
+
+        </span><span style="color: #000000; font-weight: bold; ">@reactive</span><span style="color: #000000; ">;                             </span><span style="color: #808080; font-style: italic; ">// IP module will send control messages when no route is present to the destination 
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">log_to_file</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);     </span><span style="color: #808080; font-style: italic; ">// dump AODV log files (non RFC parameter)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">hello_jittering</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);  </span><span style="color: #808080; font-style: italic; ">// add a +-50ms jitter to the hello interval (non RFC parameter)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">optimized_hellos</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// do not send hello messages if there are no active routes (non RFC parameter)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">expanding_ring_search</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);  </span><span style="color: #808080; font-style: italic; ">// use expanding ring search (section 6.4)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">local_repair</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);    </span><span style="color: #808080; font-style: italic; ">// allow the routes to be locally repaired if a node detects link failure (section 6.12)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">rreq_gratuitous</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// force gratuitous flag on all RREQs (section 6.6.3)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">debug</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);          </span><span style="color: #808080; font-style: italic; ">// dump debug messages to file (non RFC parameter)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">rt_log_interval</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);     </span><span style="color: #808080; font-style: italic; ">// periodically log routing table to routing table logfile, value is the interval in msecs (0 = off)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">unidir_hack</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);         </span><span style="color: #808080; font-style: italic; ">// detect and avoid unidirectional links (boolean) (section 6.8)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">receive_n_hellos</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);    </span><span style="color: #808080; font-style: italic; ">// receive N HELLOs before treating as neighbor (non RFC parameter)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">wait_on_reboot</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);      </span><span style="color: #808080; font-style: italic; ">// wait after reboot and gather routes before sending out routing info (section 6.13)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">ratelimit</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);            </span><span style="color: #808080; font-style: italic; ">// do not send out more than 10 RERR or RREQ (boolean) (section 6.3 abd 6.11)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">active_timeout</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">3000</span><span style="color: #000000; ">);    </span><span style="color: #808080; font-style: italic; ">// active route timeout in (ms) (section 6.2 and 6.7)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">llfeedback</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);      </span><span style="color: #808080; font-style: italic; ">// allow layer2 link-detection instead of sending hello messages (section 6.10)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">internet_gw_mode</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);    </span><span style="color: #808080; font-style: italic; ">// NOT SUPPORTED  (boolean) (run this node as an internet gateway (non RFC parameter))
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #000000; "> </span><span style="color: #000000; ">internet_gw_address</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;0.0.0.0&quot;</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// NOT SUPPORTED
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">EqualDelay</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">);       </span><span style="color: #808080; font-style: italic; ">// add a jitter to broadcast operations (RREQ, HELLO broadcast) (non RFC - omnetpp specific)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">broadcastDelay</span><span style="color: #000000; "> </span><span style="color: #000000; font-weight: bold; ">@unit</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;s&quot;</span><span style="color: #000000; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #800080; font-weight: bold; ">uniform</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">s</span><span style="color: #000000; ">,</span><span style="color: #008000; ">0</span><span style="color: #000000; ">.</span><span style="color: #008000; ">005</span><span style="color: #000000; ">s</span><span style="color: #000000; ">));  </span><span style="color: #808080; font-style: italic; ">// the delay added to broadcast operations if EqualDelay is set (used to model processing time)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #000000; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #000000; "> </span><span style="color: #000000; ">unicastDelay</span><span style="color: #000000; "> </span><span style="color: #000000; font-weight: bold; ">@unit</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;s&quot;</span><span style="color: #000000; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">s</span><span style="color: #000000; ">);  </span><span style="color: #808080; font-style: italic; ">// a delay added to unicast messaged (i.e. data packet forwarding) (used to model processing time)
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">UseIndex</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);         </span><span style="color: #808080; font-style: italic; ">// use the interface index instead the ip to identify the interface
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">useHover</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">costStatic</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">costMobile</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">4</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">isRoot</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// Proactive RREQ
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">proactiveRreqTimeout</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">5000</span><span style="color: #000000; ">);</span><span style="color: #808080; font-style: italic; ">// 5 seconds
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">propagateProactive</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">true</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// Proactive feedback
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">checkNextHop</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">PublicRoutingTables</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">false</span><span style="color: #000000; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #000000; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #000000; "> </span><span style="color: #000000; ">from_ip</span><span style="color: #000000; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #000000; "> </span><span style="color: #000000; ">to_ip</span><span style="color: #000000; ">;
+}
+
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

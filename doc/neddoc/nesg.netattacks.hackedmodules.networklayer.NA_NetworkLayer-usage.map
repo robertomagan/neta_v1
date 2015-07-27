@@ -1,0 +1,8 @@
+<area shape="rect" id="node1" href="nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer.html" title="Compound Module NA_NetworkLayer" alt="" coords="244,83,372,111">
+<area shape="rect" id="node2" href="ned.IdealChannel.html" title="Channel IdealChannel" alt="" coords="5,161,104,189">
+<area shape="rect" id="node4" href="../../../inet/doc/neddoc/inet.networklayer.ipv4.IIGMP.html" title="Module Interface IIGMP" alt="" coords="128,161,200,189">
+<area shape="rect" id="node6" href="../../../inet/doc/neddoc/inet.networklayer.arp.ARP.html" title="Simple Module ARP" alt="" coords="224,161,296,189">
+<area shape="rect" id="node8" href="../../../inet/doc/neddoc/inet.networklayer.ipv4.ICMP.html" title="Simple Module ICMP" alt="" coords="320,161,392,189">
+<area shape="rect" id="node10" href="nesg.netattacks.hackedmodules.networklayer.ipv4.NA_IPv4.html" title="Simple Module NA_IPv4" alt="" coords="416,161,491,189">
+<area shape="rect" id="node12" href="../../../inet/doc/neddoc/inet.networklayer.ipv4.ErrorHandling.html" title="Simple Module ErrorHandling" alt="" coords="515,161,616,189">
+<area shape="rect" id="node14" href="nesg.netattacks.nodes.NA_NodeBase.html" title="Compound Module NA_NodeBase" alt="" coords="253,6,363,34">

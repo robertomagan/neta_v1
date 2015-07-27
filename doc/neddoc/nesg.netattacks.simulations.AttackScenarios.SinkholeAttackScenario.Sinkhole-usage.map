@@ -1,0 +1,5 @@
+<area shape="rect" id="node1" href="nesg.netattacks.simulations.AttackScenarios.SinkholeAttackScenario.Sinkhole.html" title="Network Sinkhole" alt="" coords="297,6,369,34">
+<area shape="rect" id="node2" href="../../../inet/doc/neddoc/inet.networklayer.autorouting.ipv4.IPv4NetworkConfigurator.html" title="Simple Module IPv4NetworkConfigurator" alt="" coords="5,83,173,111">
+<area shape="rect" id="node4" href="nesg.netattacks.nodes.NA_AdhocHost.html" title="Compound Module NA_AdhocHost" alt="" coords="197,83,309,111">
+<area shape="rect" id="node6" href="nesg.netattacks.nodes.NA_AttackerAdhocHost.html" title="Compound Module NA_AttackerAdhocHost" alt="" coords="333,83,496,111">
+<area shape="rect" id="node8" href="../../../inet/doc/neddoc/inet.world.radio.ChannelControl.html" title="Simple Module ChannelControl" alt="" coords="520,83,632,111">
