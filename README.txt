@@ -9,7 +9,6 @@ Contents
  - Documentation
  - Release notes
 
-
 Description
 ===================
 NETwork Attacks (NETA) is a framework devised to simulate attacks in 
