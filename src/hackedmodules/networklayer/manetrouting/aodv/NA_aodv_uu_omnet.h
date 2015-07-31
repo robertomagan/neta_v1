@@ -75,11 +75,11 @@
 /* Needed by some network-related datatypes */
 #include "ManetRoutingBase.h"
 #include "NA_aodv-uu/NA_list.h"
-#include "NA_aodv_msg_struct.h"
+
 #include "ICMPAccess.h"
 #include "Ieee80211Frame_m.h"
 
-
+#include "NA_aodv_msg_struct.h"
 /* Forward declaration needed to be able to reference the class */
 class NA_AODVUU;
 
@@ -229,11 +229,15 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     static bool log_file_fd_init;
     NA_AODVUU() {isRoot = false; is_init = false; log_file_fd_init = false; sendMessageEvent = new cMessage();/*&messageEvent;*/}
     ~NA_AODVUU();
+/* pepemm7- fixed for INET 2.5 */ 
+    void actualizeTablesWithCollaborative(const ManetAddress &);
 
     void packetFailed(IPv4Datagram *p);
     void packetFailedMac(Ieee80211DataFrame *);
 
     // Routing information access
+/* pepemm7- fixed for INET 2.5 */ 
+    virtual bool supportGetRoute() {return false;}
     virtual uint32_t getRoute(const ManetAddress &,std::vector<ManetAddress> &);
     virtual bool getNextHop(const ManetAddress &,ManetAddress &add,int &iface,double &);
     virtual bool isProactive();
@@ -260,14 +264,16 @@ class NA_AODVUU : public ManetRoutingBase, public NA_HackedModule
     virtual void handleMessage(cMessage *msg);
     virtual void finish();
 
-    int numInitStages() const  {return 5;}
-    void initialize(int stage);
+/* pepemm7- fixed for INET 2.5 */ 
+    virtual int numInitStages() const  {return 5;}
+    virtual void initialize(int stage);
 
 
     cMessage * sendMessageEvent;
 
     void recvAODVUUPacket(cMessage * p);
     void processPacket(IPv4Datagram *,unsigned int);
+    void processMacPacket(cPacket * p, const ManetAddress &dest, const ManetAddress &src, int ifindex);
 
     int initialized;
     int  node_id;

@@ -29,6 +29,11 @@
 #include <string.h>
 #include "IPv4Datagram.h"
 
+#include <AbstractQueue.h>
+
+
+#include <IPv4Datagram.h>
+
 using std::cout;
 
 simsignal_t NA_IPv4::dropSignal = SIMSIGNAL_NULL;
@@ -37,7 +42,7 @@ simsignal_t NA_IPv4::delaySignal = SIMSIGNAL_NULL;
 
 Define_Module(NA_IPv4);
 
-void NA_IPv4::initialize() {
+void NA_IPv4::initialize(int stage) { /* pepemm7- fixed for INET 2.5 */ 
 
     // Dropping attack initialization
     numDrops = 0;
@@ -57,7 +62,7 @@ void NA_IPv4::initialize() {
     numRecvPacket = 0;
     rcvdPktSignal = registerSignal("rcvdPkt");
 
-    IPv4::initialize();
+    IPv4::initialize(stage);
 }
 
 void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
@@ -116,9 +121,8 @@ void NA_IPv4::handleMessageFromAttackController(cMessage *msg) {
                 << msg->getFullName() << "\n";
     }
 }
-
-void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
-        InterfaceEntry *fromIE) {
+/* pepemm7- fixed for INET 2.5 */ 
+void NA_IPv4::handleIncomingDatagram(IPv4Datagram *datagram, const InterfaceEntry *fromIE) {
 
     ASSERT(datagram);
 
@@ -150,15 +154,15 @@ void NA_IPv4::handlePacketFromNetwork(IPv4Datagram *datagram,
                         << datagram->getName() << endl;
                 delete datagram; //Deletes the datagram thus calling its destructor
             } else {
-                IPv4::handlePacketFromNetwork(datagram, fromIE);
+                IPv4::handleIncomingDatagram(datagram, fromIE);
             }
         } else { //Packet is not a data packet --> normal behavior
-            IPv4::handlePacketFromNetwork(datagram, fromIE);
+            IPv4::handleIncomingDatagram(datagram, fromIE);
 
         }
 
     } else { // --> Normal behavior.
-        IPv4::handlePacketFromNetwork(datagram, fromIE);
+        IPv4::handleIncomingDatagram(datagram, fromIE);
     }
 }
 

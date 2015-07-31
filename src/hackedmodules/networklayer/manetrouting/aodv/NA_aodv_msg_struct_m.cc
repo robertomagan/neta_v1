@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgc 4.3 from hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.msg.
+// Generated file, do not edit! Created by nedtool 4.6 from hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -12,9 +12,8 @@
 #include <sstream>
 #include "NA_aodv_msg_struct_m.h"
 
-// Template rule which fires if a struct or class doesn't have operator<<
-template<typename T>
-std::ostream& operator<<(std::ostream& out,const T&) {return out;}
+USING_NAMESPACE
+
 
 // Another default rule (prevents compiler from choosing base class' doPacking())
 template<typename T>
@@ -29,6 +28,30 @@ void doUnpacking(cCommBuffer *, T& t) {
 
 
 
+
+// Template rule for outputting std::vector<T> types
+template<typename T, typename A>
+inline std::ostream& operator<<(std::ostream& out, const std::vector<T,A>& vec)
+{
+    out.put('{');
+    for(typename std::vector<T,A>::const_iterator it = vec.begin(); it != vec.end(); ++it)
+    {
+        if (it != vec.begin()) {
+            out.put(','); out.put(' ');
+        }
+        out << *it;
+    }
+    out.put('}');
+    
+    char buf[32];
+    sprintf(buf, " (size=%u)", (unsigned int)vec.size());
+    out.write(buf, strlen(buf));
+    return out;
+}
+
+// Template rule which fires if a struct or class doesn't have operator<<
+template<typename T>
+inline std::ostream& operator<<(std::ostream& out,const T&) {return out;}
 
 class AODV_extDescriptor : public cClassDescriptor
 {
@@ -201,11 +224,9 @@ const char *AODV_extDescriptor::getFieldStructName(void *object, int field) cons
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
-        NULL,
+    switch (field) {
+        default: return NULL;
     };
-    return (field>=0 && field<2) ? fieldStructNames[field] : NULL;
 }
 
 void *AODV_extDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -408,13 +429,10 @@ const char *AODV_msgDescriptor::getFieldStructName(void *object, int field) cons
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
-        NULL,
-        NULL,
-        "AODV_ext",
+    switch (field) {
+        case 3: return opp_typename(typeid(AODV_ext));
+        default: return NULL;
     };
-    return (field>=0 && field<4) ? fieldStructNames[field] : NULL;
 }
 
 void *AODV_msgDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -603,11 +621,10 @@ const char *RERR_udestDescriptor::getFieldStructName(void *object, int field) co
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        "ManetAddress",
-        NULL,
+    switch (field) {
+        case 0: return opp_typename(typeid(ManetAddress));
+        default: return NULL;
     };
-    return (field>=0 && field<2) ? fieldStructNames[field] : NULL;
 }
 
 void *RERR_udestDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -810,13 +827,10 @@ const char *RERRDescriptor::getFieldStructName(void *object, int field) const
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
-        NULL,
-        NULL,
-        "RERR_udest",
+    switch (field) {
+        case 3: return opp_typename(typeid(RERR_udest));
+        default: return NULL;
     };
-    return (field>=0 && field<4) ? fieldStructNames[field] : NULL;
 }
 
 void *RERRDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -1061,22 +1075,12 @@ const char *RREPDescriptor::getFieldStructName(void *object, int field) const
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        "ManetAddress",
-        NULL,
-        "ManetAddress",
-        NULL,
-        NULL,
-        NULL,
-        "AODV_ext",
+    switch (field) {
+        case 6: return opp_typename(typeid(ManetAddress));
+        case 8: return opp_typename(typeid(ManetAddress));
+        case 12: return opp_typename(typeid(AODV_ext));
+        default: return NULL;
     };
-    return (field>=0 && field<13) ? fieldStructNames[field] : NULL;
 }
 
 void *RREPDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -1262,10 +1266,9 @@ const char *RREP_ackDescriptor::getFieldStructName(void *object, int field) cons
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
+    switch (field) {
+        default: return NULL;
     };
-    return (field>=0 && field<1) ? fieldStructNames[field] : NULL;
 }
 
 void *RREP_ackDescriptor::getFieldStructPointer(void *object, int field, int i) const
@@ -1513,23 +1516,11 @@ const char *RREQDescriptor::getFieldStructName(void *object, int field) const
             return basedesc->getFieldStructName(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    static const char *fieldStructNames[] = {
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        "ManetAddress",
-        NULL,
-        "ManetAddress",
-        NULL,
-        NULL,
-        NULL,
+    switch (field) {
+        case 8: return opp_typename(typeid(ManetAddress));
+        case 10: return opp_typename(typeid(ManetAddress));
+        default: return NULL;
     };
-    return (field>=0 && field<14) ? fieldStructNames[field] : NULL;
 }
 
 void *RREQDescriptor::getFieldStructPointer(void *object, int field, int i) const

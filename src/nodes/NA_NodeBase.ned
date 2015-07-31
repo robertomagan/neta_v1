@@ -28,15 +28,19 @@
 
 package nesg.netattacks.nodes;
 
-import inet.util.PcapRecorder;
-import inet.networklayer.ipv4.RoutingTable;
-import inet.networklayer.common.InterfaceTable;
-import inet.mobility.IMobility;
-import inet.linklayer.IWirelessNic;
-import inet.linklayer.IWiredNic;
-import inet.linklayer.IExternalNic;
 import inet.base.NotificationBoard;
+import inet.battery.IBattery;
+import inet.linklayer.IExternalNic;
+import inet.linklayer.IWiredNic;
+import inet.linklayer.IWirelessNic;
+import inet.linklayer.loopback.LoopbackInterface;
+import inet.mobility.contract.IMobility;
+import inet.networklayer.common.InterfaceTable;
+import inet.networklayer.ipv4.RoutingTable;
+import inet.status.NodeStatus;
+import inet.util.PcapRecorder;
 import inet.nodes.inet.NetworkLayer;
+
 
 import nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer;
 
@@ -53,24 +57,36 @@ import nesg.netattacks.hackedmodules.networklayer.NA_NetworkLayer;
 // @date 01/22/2013
 module NA_NodeBase
 {
+// pepemm7- fixed for INET 2.5 */ 
     parameters:
         @display("bgb=611,448");
         @node;
         @labels(node,ethernet-node,wireless-node);
+        bool hasStatus = default(false);
         int numExtInterfaces = default(0);
         int numRadios = default(0);               // the number of radios in the router. by default no wireless
         int numPcapRecorders = default(0); // no of PcapRecorders.
         string mobilityType = default("StationaryMobility");
         string routingFile = default("");
         bool IPForward = default(true);
+        string batteryType = default("");
     gates:
         input radioIn[numRadios] @directIn;
         inout pppg[] @labels(PPPFrame-conn);
         inout ethg[] @labels(EtherFrame-conn);
     submodules:
+        status: NodeStatus if hasStatus {
+            @display("p=50,50");
+        }
+
         notificationBoard: NotificationBoard {
             parameters:
                 @display("p=53,194");
+        }
+
+        battery: <batteryType> like IBattery if batteryType != "" {
+            parameters:
+                @display("p=142,60;i=block/plug;is=s");
         }
 
         // optional mobility module. Required only if wireless cards are present
@@ -101,6 +117,10 @@ module NA_NodeBase
         pcapRecorder[numPcapRecorders]: PcapRecorder {
             @display("p=159,259");
         }
+        
+        lo0: LoopbackInterface {
+            @display("p=78,406");
+        }
 
         wlan[numRadios]: <default("Ieee80211Nic")> like IWirelessNic {
             parameters:
@@ -121,20 +141,23 @@ module NA_NodeBase
 
     connections allowunconnected:
         // connections to network outside
+        networkLayer.ifOut++ --> lo0.upperLayerIn;
+        lo0.upperLayerOut --> networkLayer.ifIn++;
+
         for i=0..sizeof(radioIn)-1 {
-            radioIn[i] --> wlan[i].radioIn;
+            radioIn[i] --> { @display("m=s"); } --> wlan[i].radioIn;
             wlan[i].upperLayerOut --> networkLayer.ifIn++;
             wlan[i].upperLayerIn <-- networkLayer.ifOut++;
         }
-		
+
         for i=0..sizeof(ethg)-1 {
-            ethg[i] <--> eth[i].phys;
+            ethg[i] <--> { @display("m=s"); } <--> eth[i].phys;
             eth[i].upperLayerOut --> networkLayer.ifIn++;
             eth[i].upperLayerIn <-- networkLayer.ifOut++;
         }
 
         for i=0..sizeof(pppg)-1 {
-            pppg[i] <--> ppp[i].phys;
+            pppg[i] <--> { @display("m=s"); } <--> ppp[i].phys;
             ppp[i].upperLayerOut --> networkLayer.ifIn++;
             ppp[i].upperLayerIn <-- networkLayer.ifOut++;
         }
@@ -145,3 +168,4 @@ module NA_NodeBase
         }
 }
 
+    

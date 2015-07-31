@@ -138,7 +138,7 @@ protected:
      * Method from cSimpleModule class, to initialize the simple module.
      * Overridden function.
      */
-    virtual void initialize();
+    virtual void initialize(int stage); /* pepemm7- fixed for INET 2.5 */ 
 
     /*----------------- DROPPING ATTACK  -------------------------*/
     /**
@@ -151,8 +151,8 @@ protected:
      * First check if the dropping behavior is active. Then check if the received packet is
      * a valid packet to drop (PING, UDP and/or TCP). Finally discard it or not randomly.
      */
-    virtual void handlePacketFromNetwork(IPv4Datagram *datagram, InterfaceEntry *fromIE);
-
+    virtual void handleIncomingDatagram(IPv4Datagram *datagram, const InterfaceEntry *fromIE);
+/* pepemm7- fixed for INET 2.5 */ 
     /*----------------- DELAY ATTACK  -------------------------*/
     /**
      * Overridden function to implement the delay behavior.

@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for netattacks
+# OMNeT++/OMNEST Makefile for netattacks_v1
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I../../inet/src/linklayer/ethernet -I../../inet/src/linklayer/ieee80211/radio -I../../inet/src/networklayer/common -I../../inet/src/networklayer/icmpv6 -I../../inet/src -I../../inet/src/world/obstacles -I../../inet/src/networklayer/xmipv6 -I../../inet/src/mobility -I../../inet/src/networklayer/manetrouting/base -I../../inet/src/networklayer/contract -I../../inet/src/linklayer/ieee80211/mgmt -I../../inet/src/util -I../../inet/src/transport/contract -I../../inet/src/linklayer/radio/propagation -I../../inet/src/linklayer/ieee80211/radio/errormodel -I../../inet/src/world/powercontrol -I../../inet/src/linklayer/radio -I../../inet/src/util/headerserializers/tcp -I../../inet/src/networklayer/ipv4 -I../../inet/src/util/headerserializers/ipv4 -I../../inet/src/base -I../../inet/src/util/headerserializers -I../../inet/src/world/radio -I../../inet/src/linklayer/ieee80211/mac -I../../inet/src/networklayer/ipv6 -I../../inet/src/transport/sctp -I../../inet/src/util/headerserializers/udp -I../../inet/src/networklayer/ipv6tunneling -I../../inet/src/battery/models -I../../inet/src/applications/pingapp -I../../inet/src/linklayer/contract -I../../inet/src/util/headerserializers/sctp -I../../inet/src/networklayer/arp -I../../inet/src/transport/tcp_common -I../../inet/src/transport/udp -I../../inet/src/applications/udpapp -L../../inet/out/$(CONFIGNAME)/src -linet -DWITH_TCP_COMMON -DWITH_TCP_INET -DWITH_IPv4 -DWITH_IPv6 -DWITH_xMIPv6 -DWITH_UDP -DWITH_RTP -DWITH_SCTP -DWITH_ETHERNET -DWITH_PPP -DWITH_EXT_IF -DWITH_MPLS -DWITH_OSPFv2 -DWITH_BGPv4 -DWITH_MANET -DWITH_DHCP -DINET_IMPORT -KINET_PROJ=../../inet
+#  opp_makemake -f --deep -I/home/pepe/Omnetpp4_6/inet/src/linklayer/ieee80211/radio -I/home/pepe/Omnetpp4_6/inet/src/networklayer/routing/aodv -I/home/pepe/Omnetpp4_6/inet/src/networklayer/common -I/home/pepe/Omnetpp4_6/inet/src -I/home/pepe/Omnetpp4_6/inet/src/networklayer/icmpv6 -I/home/pepe/Omnetpp4_6/inet/src/world/obstacles -I/home/pepe/Omnetpp4_6/inet/src/networklayer/xmipv6 -I/home/pepe/Omnetpp4_6/inet/src/networklayer/contract -I/home/pepe/Omnetpp4_6/inet/src/networklayer/autorouting/ipv4 -I/home/pepe/Omnetpp4_6/inet/src/util -I/home/pepe/Omnetpp4_6/inet/src/linklayer/common -I/home/pepe/Omnetpp4_6/inet/src/transport/contract -I/home/pepe/Omnetpp4_6/inet/src/status -I/home/pepe/Omnetpp4_6/inet/src/linklayer/radio/propagation -I/home/pepe/Omnetpp4_6/inet/src/linklayer/ieee80211/radio/errormodel -I/home/pepe/Omnetpp4_6/inet/src/linklayer/radio -I/home/pepe/Omnetpp4_6/inet/src/applications/udpapp -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers/tcp -I/home/pepe/Omnetpp4_6/inet/src/networklayer/ipv4 -I/home/pepe/Omnetpp4_6/inet/src/mobility/contract -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers/ipv4 -I/home/pepe/Omnetpp4_6/inet/src/applications/common -I/home/pepe/Omnetpp4_6/inet/src/base -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers -I/home/pepe/Omnetpp4_6/inet/src/world/radio -I/home/pepe/Omnetpp4_6/inet/src/linklayer/ieee80211/mac -I/home/pepe/Omnetpp4_6/inet/src/networklayer/ipv6 -I/home/pepe/Omnetpp4_6/inet/src/transport/sctp -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers/udp -I/home/pepe/Omnetpp4_6/inet/src/networklayer/ipv6tunneling -I/home/pepe/Omnetpp4_6/inet/src/applications/pingapp -I/home/pepe/Omnetpp4_6/inet/src/battery/models -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers/ipv6 -I/home/pepe/Omnetpp4_6/inet/src/util/headerserializers/sctp -I/home/pepe/Omnetpp4_6/inet/src/linklayer/contract -I/home/pepe/Omnetpp4_6/inet/src/transport/tcp_common -I/home/pepe/Omnetpp4_6/inet/src/networklayer/arp -I/home/pepe/Omnetpp4_6/inet/src/transport/udp -I/home/pepe/Omnetpp4_6/inet/src/linklayer/ethernet -I/home/pepe/Omnetpp4_6/inet/src/networklayer/manetrouting/base -I/home/pepe/Omnetpp4_6/inet/src/linklayer/ieee80211/mgmt -I/home/pepe/Omnetpp4_6/inet/src/networklayer/manetrouting/dsr -L/home/pepe/Omnetpp4_6/inet/out/$$\(CONFIGNAME\)/src -linet -DWITH_TCP_COMMON -DWITH_TCP_INET -DWITH_IPv4 -DWITH_IPv6 -DWITH_xMIPv6 -DWITH_UDP -DWITH_RTP -DWITH_SCTP -DWITH_ETHERNET -DWITH_PPP -DWITH_EXT_IF -DWITH_MPLS -DWITH_OSPFv2 -DWITH_BGPv4 -DWITH_MANET -DWITH_DHCP -DINET_IMPORT -KINET_PROJ=/home/pepe/Omnetpp4_6/inet
 #
 
 # Name of target to be created (-o option)
-TARGET = netattacks$(EXE_SUFFIX)
+TARGET = netattacks_v1$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
@@ -15,42 +15,48 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
 
 # C++ include paths (with -I)
 INCLUDE_PATH = \
-    -I../../inet/src/linklayer/ethernet \
-    -I../../inet/src/linklayer/ieee80211/radio \
-    -I../../inet/src/networklayer/common \
-    -I../../inet/src/networklayer/icmpv6 \
-    -I../../inet/src \
-    -I../../inet/src/world/obstacles \
-    -I../../inet/src/networklayer/xmipv6 \
-    -I../../inet/src/mobility \
-    -I../../inet/src/networklayer/manetrouting/base \
-    -I../../inet/src/networklayer/contract \
-    -I../../inet/src/linklayer/ieee80211/mgmt \
-    -I../../inet/src/util \
-    -I../../inet/src/transport/contract \
-    -I../../inet/src/linklayer/radio/propagation \
-    -I../../inet/src/linklayer/ieee80211/radio/errormodel \
-    -I../../inet/src/world/powercontrol \
-    -I../../inet/src/linklayer/radio \
-    -I../../inet/src/util/headerserializers/tcp \
-    -I../../inet/src/networklayer/ipv4 \
-    -I../../inet/src/util/headerserializers/ipv4 \
-    -I../../inet/src/base \
-    -I../../inet/src/util/headerserializers \
-    -I../../inet/src/world/radio \
-    -I../../inet/src/linklayer/ieee80211/mac \
-    -I../../inet/src/networklayer/ipv6 \
-    -I../../inet/src/transport/sctp \
-    -I../../inet/src/util/headerserializers/udp \
-    -I../../inet/src/networklayer/ipv6tunneling \
-    -I../../inet/src/battery/models \
-    -I../../inet/src/applications/pingapp \
-    -I../../inet/src/linklayer/contract \
-    -I../../inet/src/util/headerserializers/sctp \
-    -I../../inet/src/networklayer/arp \
-    -I../../inet/src/transport/tcp_common \
-    -I../../inet/src/transport/udp \
-    -I../../inet/src/applications/udpapp \
+    -I$(INET_PROJ)/src/linklayer/ieee80211/radio \
+    -I$(INET_PROJ)/src/networklayer/routing/aodv \
+    -I$(INET_PROJ)/src/networklayer/common \
+    -I$(INET_PROJ)/src \
+    -I$(INET_PROJ)/src/networklayer/icmpv6 \
+    -I$(INET_PROJ)/src/world/obstacles \
+    -I$(INET_PROJ)/src/networklayer/xmipv6 \
+    -I$(INET_PROJ)/src/networklayer/contract \
+    -I$(INET_PROJ)/src/networklayer/autorouting/ipv4 \
+    -I$(INET_PROJ)/src/util \
+    -I$(INET_PROJ)/src/linklayer/common \
+    -I$(INET_PROJ)/src/transport/contract \
+    -I$(INET_PROJ)/src/status \
+    -I$(INET_PROJ)/src/linklayer/radio/propagation \
+    -I$(INET_PROJ)/src/linklayer/ieee80211/radio/errormodel \
+    -I$(INET_PROJ)/src/linklayer/radio \
+    -I$(INET_PROJ)/src/applications/udpapp \
+    -I$(INET_PROJ)/src/util/headerserializers/tcp \
+    -I$(INET_PROJ)/src/networklayer/ipv4 \
+    -I$(INET_PROJ)/src/mobility/contract \
+    -I$(INET_PROJ)/src/util/headerserializers/ipv4 \
+    -I$(INET_PROJ)/src/applications/common \
+    -I$(INET_PROJ)/src/base \
+    -I$(INET_PROJ)/src/util/headerserializers \
+    -I$(INET_PROJ)/src/world/radio \
+    -I$(INET_PROJ)/src/linklayer/ieee80211/mac \
+    -I$(INET_PROJ)/src/networklayer/ipv6 \
+    -I$(INET_PROJ)/src/transport/sctp \
+    -I$(INET_PROJ)/src/util/headerserializers/udp \
+    -I$(INET_PROJ)/src/networklayer/ipv6tunneling \
+    -I$(INET_PROJ)/src/applications/pingapp \
+    -I$(INET_PROJ)/src/battery/models \
+    -I$(INET_PROJ)/src/util/headerserializers/ipv6 \
+    -I$(INET_PROJ)/src/util/headerserializers/sctp \
+    -I$(INET_PROJ)/src/linklayer/contract \
+    -I$(INET_PROJ)/src/transport/tcp_common \
+    -I$(INET_PROJ)/src/networklayer/arp \
+    -I$(INET_PROJ)/src/transport/udp \
+    -I$(INET_PROJ)/src/linklayer/ethernet \
+    -I$(INET_PROJ)/src/networklayer/manetrouting/base \
+    -I$(INET_PROJ)/src/linklayer/ieee80211/mgmt \
+    -I$(INET_PROJ)/src/networklayer/manetrouting/dsr \
     -I. \
     -Iattacks \
     -Iattacks/controllers \
@@ -78,8 +84,8 @@ INCLUDE_PATH = \
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = -L../../inet/out/$(CONFIGNAME)/src  -linet
-LIBS += -Wl,-rpath,`abspath ../../inet/out/$(CONFIGNAME)/src`
+LIBS = -L$(INET_PROJ)/out/$(CONFIGNAME)/src  -linet
+LIBS += -Wl,-rpath,`abspath $(INET_PROJ)/out/$(CONFIGNAME)/src`
 
 # Output directory
 PROJECT_OUTPUT_DIR = ../out
@@ -100,19 +106,19 @@ OBJS = \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_timer_queue_aodv.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_list.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_debug_aodv.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_locality.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.o \
+    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.o \
     $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rerr.o \
-    $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.o \
     $O/attacks/controlmessages/delayAttack/NA_DelayMessage_m.o \
     $O/attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.o \
     $O/attacks/controlmessages/sinkholeAttack/NA_SinkholeMessage_m.o \
@@ -126,7 +132,7 @@ MSGFILES = \
     hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.msg
 
 # Other makefile variables (-K)
-INET_PROJ=../../inet
+INET_PROJ=/home/pepe/Omnetpp4_6/inet
 
 #------------------------------------------------------------------------------
 
@@ -204,7 +210,7 @@ $O/$(TARGET): $(OBJS)  $(wildcard $(EXTRA_OBJS)) Makefile
 $O/%.o: %.cc $(COPTS_FILE)
 	@$(MKPATH) $(dir $@)
 	$(qecho) "$<"
-	$(Q)$(CXX) -c $(COPTS) -o $@ $<
+	$(Q)$(CXX) -c $(CXXFLAGS) $(COPTS) -o $@ $<
 
 %_m.cc %_m.h: %.msg
 	$(qecho) MSGC: $<
@@ -215,7 +221,7 @@ msgheaders: $(MSGFILES:.msg=_m.h)
 clean:
 	$(qecho) Cleaning...
 	$(Q)-rm -rf $O
-	$(Q)-rm -f netattacks netattacks.exe libnetattacks.so libnetattacks.a libnetattacks.dll libnetattacks.dylib
+	$(Q)-rm -f netattacks_v1 netattacks_v1.exe libnetattacks_v1.so libnetattacks_v1.a libnetattacks_v1.dll libnetattacks_v1.dylib
 	$(Q)-rm -f ./*_m.cc ./*_m.h
 	$(Q)-rm -f attacks/*_m.cc attacks/*_m.h
 	$(Q)-rm -f attacks/controllers/*_m.cc attacks/controllers/*_m.h
@@ -249,26 +255,32 @@ depend:
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/attacks/controllers/NA_Attack.o: attacks/controllers/NA_Attack.cc \
 	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
+	$(INET_PROJ)/src/base/NotifierConsts.h \
 	$(INET_PROJ)/src/base/ProtocolMap.h \
 	$(INET_PROJ)/src/base/QueueBase.h \
 	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
+	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
+	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
-	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
-	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMP.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
-	$(INET_PROJ)/src/networklayer/manetrouting/base/ControlManetRouting_m.h \
-	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
 	attacks/controllers/NA_Attack.h \
 	attacks/controlmessages/delayAttack/NA_DelayMessage_m.h \
 	attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.h \
@@ -310,8 +322,14 @@ $O/hackedmodules/NA_HackedModule.o: hackedmodules/NA_HackedModule.cc \
 	common/utils/NA_Utils.h \
 	hackedmodules/NA_HackedModule.h
 $O/hackedmodules/applications/udpapp/NA_UDPBasicBurst.o: hackedmodules/applications/udpapp/NA_UDPBasicBurst.cc \
+	$(INET_PROJ)/src/applications/common/ApplicationBase.h \
 	$(INET_PROJ)/src/applications/udpapp/UDPBasicBurst.h \
+	$(INET_PROJ)/src/base/Compat.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
+	$(INET_PROJ)/src/base/LifecycleOperation.h \
+	$(INET_PROJ)/src/base/NodeOperations.h \
+	$(INET_PROJ)/src/base/OperationalBase.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -323,16 +341,21 @@ $O/hackedmodules/applications/udpapp/NA_UDPBasicBurst.o: hackedmodules/applicati
 	hackedmodules/applications/udpapp/NA_UDPBasicBurst.h
 $O/hackedmodules/networklayer/ipv4/NA_IPv4.o: hackedmodules/networklayer/ipv4/NA_IPv4.cc \
 	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
+	$(INET_PROJ)/src/base/NotifierConsts.h \
 	$(INET_PROJ)/src/base/ProtocolMap.h \
 	$(INET_PROJ)/src/base/QueueBase.h \
 	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
+	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
+	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
 	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
-	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
-	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMP.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
@@ -344,8 +367,6 @@ $O/hackedmodules/networklayer/ipv4/NA_IPv4.o: hackedmodules/networklayer/ipv4/NA
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
-	$(INET_PROJ)/src/networklayer/manetrouting/base/ControlManetRouting_m.h \
-	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
 	attacks/controlmessages/delayAttack/NA_DelayMessage_m.h \
 	attacks/controlmessages/droppingAttack/NA_DroppingMessage_m.h \
 	common/log/NA_NesgLog.h \
@@ -353,6 +374,8 @@ $O/hackedmodules/networklayer/ipv4/NA_IPv4.o: hackedmodules/networklayer/ipv4/NA
 	hackedmodules/NA_HackedModule.h \
 	hackedmodules/networklayer/ipv4/NA_IPv4.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.cc \
+	$(INET_PROJ)/src/base/Compat.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
@@ -389,6 +412,7 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.o: hackedmodu
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct_m.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct_m.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct_m.cc \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
@@ -399,19 +423,26 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct_m.o: hackedmo
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_msg_struct_m.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
 	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
 	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
@@ -426,14 +457,17 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.o: hackedmodule
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4InterfaceData.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ControlManetRouting_m.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/transport/udp/UDPPacket.h \
@@ -463,18 +497,26 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.o: hackedmodule
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.o: hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
 	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
@@ -485,12 +527,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.o: hackedm
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -518,20 +563,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.o: hackedm
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -539,10 +593,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.o: hack
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -570,20 +629,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_hello.o: hack
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -591,10 +659,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.o: h
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -622,20 +695,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_neighbor.o: h
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rerr.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rerr.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -643,10 +725,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rerr.o: hacke
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -674,20 +761,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rerr.o: hacke
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -695,10 +791,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.o: hacke
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -726,20 +827,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rrep.o: hacke
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -748,10 +858,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.o: hacke
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -779,20 +894,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_rreq.o: hacke
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -800,10 +924,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.o: hac
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -831,20 +960,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_socket.o: hac
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -852,10 +990,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.o: ha
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -883,20 +1026,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_aodv_timeout.o: ha
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_debug_aodv.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_debug_aodv.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -904,10 +1056,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_debug_aodv.o: hack
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -937,20 +1094,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_debug_aodv.o: hack
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_list.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_list.cc \
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_list.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_locality.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_locality.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -958,11 +1124,16 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_locality.o: hacked
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4InterfaceData.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -990,20 +1161,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_locality.o: hacked
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -1011,10 +1191,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o: h
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -1042,20 +1227,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_routing_table.o: h
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -1063,10 +1257,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o: hacke
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \
@@ -1094,20 +1293,29 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_seek_list.o: hacke
 	hackedmodules/networklayer/manetrouting/aodv/NA_aodv_uu_omnet.h \
 	hackedmodules/networklayer/manetrouting/aodv/NA_packet_queue_omnet.h
 $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_timer_queue_aodv.o: hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_timer_queue_aodv.cc \
+	$(INET_PROJ)/src/base/AbstractQueue.h \
+	$(INET_PROJ)/src/base/Compat.h \
 	$(INET_PROJ)/src/base/Coord.h \
+	$(INET_PROJ)/src/base/ILifecycle.h \
 	$(INET_PROJ)/src/base/INETDefs.h \
 	$(INET_PROJ)/src/base/INotifiable.h \
 	$(INET_PROJ)/src/base/ModuleAccess.h \
 	$(INET_PROJ)/src/base/NotificationBoard.h \
 	$(INET_PROJ)/src/base/NotifierConsts.h \
+	$(INET_PROJ)/src/base/ProtocolMap.h \
+	$(INET_PROJ)/src/base/QueueBase.h \
+	$(INET_PROJ)/src/base/ReassemblyBuffer.h \
 	$(INET_PROJ)/src/linklayer/contract/Ieee802Ctrl_m.h \
 	$(INET_PROJ)/src/linklayer/contract/MACAddress.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Consts.h \
 	$(INET_PROJ)/src/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
 	$(INET_PROJ)/src/networklayer/arp/ARP.h \
+	$(INET_PROJ)/src/networklayer/arp/IARPCache.h \
 	$(INET_PROJ)/src/networklayer/common/IInterfaceTable.h \
+	$(INET_PROJ)/src/networklayer/common/INetfilter.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/networklayer/contract/IPProtocolId_m.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv4Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPv6Address.h \
 	$(INET_PROJ)/src/networklayer/contract/IPvXAddress.h \
@@ -1115,10 +1323,15 @@ $O/hackedmodules/networklayer/manetrouting/aodv/NA_aodv-uu/NA_timer_queue_aodv.o
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPAccess.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/networklayer/ipv4/ICMPMessage_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/networklayer/ipv4/IPv4FragBuf.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IPv4Route.h \
 	$(INET_PROJ)/src/networklayer/ipv4/IRoutingTable.h \
 	$(INET_PROJ)/src/networklayer/ipv4/RoutingTableAccess.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetAddress.h \
+	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetNetfilterHook.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/ManetRoutingBase.h \
 	$(INET_PROJ)/src/networklayer/manetrouting/base/compatibility.h \
 	$(INET_PROJ)/src/util/FWMath.h \

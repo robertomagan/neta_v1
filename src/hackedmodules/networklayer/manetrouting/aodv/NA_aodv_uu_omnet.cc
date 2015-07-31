@@ -34,7 +34,6 @@
 
 #include <string.h>
 #include <assert.h>
-#include "NA_aodv_uu_omnet.h"
 
 #include "UDPPacket.h"
 #include "IPv4ControlInfo.h"
@@ -50,6 +49,7 @@
 #include "IPvXAddress.h"
 #include "ControlManetRouting_m.h"
 #include "Ieee802Ctrl_m.h"
+#include "NA_aodv_uu_omnet.h"
 
 
 const int UDP_HEADER_BYTES = 8;
@@ -74,6 +74,7 @@ int NA_AODVUU::totalRrepAckRec=0;
 int NA_AODVUU::totalRerrSend=0;
 int NA_AODVUU::totalRerrRec=0;
 #endif
+
 
 void NS_CLASS initialize(int stage)
 {
@@ -133,8 +134,6 @@ void NS_CLASS initialize(int stage)
         if ((bool)par("rreq_gratuitous"))
             rreq_gratuitous = 1;
 
-        if ((bool)par("debug"))
-            debug = 1;
 
         useIndex = par("UseIndex");
         unidir_hack = (int) par("unidir_hack");
@@ -182,8 +181,6 @@ void NS_CLASS initialize(int stage)
             log_init();
             log_file_fd_init=true;
         }
-#else
-        debug = 0;
 #endif
         /* Set host parameters */
         memset(&this_host, 0, sizeof(struct host_info));
@@ -214,6 +211,8 @@ void NS_CLASS initialize(int stage)
                 DEV_NR(i).ipaddr.s_addr = ManetAddress(getInterfaceEntry(i)->getMacAddress());
 
             }
+            if (getInterfaceEntry(i)->isLoopback())
+                continue;
         }
         /* Set network interface parameters */
         for (int i=0; i < getNumWlanInterfaces(); i++)
@@ -253,7 +252,7 @@ void NS_CLASS initialize(int stage)
         if (isRoot)
         {
             timer_init(&proactive_rreq_timer,&NS_CLASS rreq_proactive, NULL);
-            timer_set_timeout(&proactive_rreq_timer, proactive_rreq_timeout);
+            timer_set_timeout(&proactive_rreq_timer, par("startRreqProactive").longValue());
         }
 
         propagateProactive = par("propagateProactive");
@@ -266,14 +265,14 @@ void NS_CLASS initialize(int stage)
         is_init=true;
         // Initialize the timer
         scheduleNextEvent();
-        ev << "Aodv active"<< "\n";
+        EV << "Aodv active"<< "\n";
     }
 }
 
 /* Destructor for the AODV-UU routing agent */
 NS_CLASS ~ NA_AODVUU()
 {
-    list_t *tmp = NULL, *pos = NULL;
+
 #ifdef AODV_USE_STL_RT
     while (!aodvRtTableMap.empty())
     {
@@ -281,6 +280,7 @@ NS_CLASS ~ NA_AODVUU()
         aodvRtTableMap.erase(aodvRtTableMap.begin());
     }
 #else
+    list_t *tmp = NULL, *pos = NULL;
     for (int i = 0; i < RT_TABLESIZE; i++)
     {
         list_foreach_safe(pos, tmp, &rt_tbl.tbl[i])
@@ -480,6 +480,20 @@ void NS_CLASS packetFailedMac(Ieee80211DataFrame *dgram)
         scheduleNextEvent();
         return;
     }
+	/* pepemm7- fixed for INET 2.5 */ 
+    next_hop.s_addr = ManetAddress(dgram->getReceiverAddress());
+    if (isStaticNode() && getCollaborativeProtocol())
+    {
+        ManetAddress next;
+        int iface;
+        double cost;
+        if (getCollaborativeProtocol()->getNextHop(next_hop.s_addr, next, iface, cost))
+            if(next == next_hop.s_addr)
+            {
+                scheduleNextEvent();
+                return; // both nodes are static, do nothing
+            }
+    }
 
     rt = rt_table_find(dest_addr);
 
@@ -549,24 +563,72 @@ void NS_CLASS handleMessage (cMessage *msg)
         ControlManetRouting * control =  check_and_cast <ControlManetRouting *> (msg);
         if (control->getOptionCode()== MANET_ROUTE_NOROUTE)
         {
-            ipDgram = (IPv4Datagram*) control->decapsulate();
-            cPolymorphic * ctrl = ipDgram->removeControlInfo();
-            unsigned int ifindex = NS_IFINDEX;  /* Always use ns interface */
-            if (ctrl)
+/* pepemm7- fixed for INET 2.5 */ 
+            if (isInMacLayer())
             {
-                if (dynamic_cast<Ieee802Ctrl*> (ctrl))
+                if (control->getDestAddress().isBroadcast())
                 {
-                    Ieee802Ctrl *ieeectrl = dynamic_cast<Ieee802Ctrl*> (ctrl);
-                    ManetAddress address(ieeectrl->getDest());
-                    int index = getWlanInterfaceIndexByAddress(address);
-                    if (index!=-1)
-                        ifindex = index;
+                    delete control;
+                    return;
                 }
-                delete ctrl;
-            }
+                cMessage* msgAux = control->decapsulate();
 
-            EV << "Aodv rec datagram  " << ipDgram->getName() << " with dest=" << ipDgram->getDestAddress().str() << "\n";
-            processPacket(ipDgram,ifindex);   // Data path
+                if (msgAux)
+                    processMacPacket(PK(msgAux), control->getDestAddress(), control->getSrcAddress(), NS_IFINDEX);
+                else
+                {
+                    if (!addressIsForUs(control->getSrcAddress()))
+                    {
+                        struct in_addr dest_addr;
+                        dest_addr.s_addr = control->getDestAddress();
+                        rt_table_t * fwd_rt = rt_table_find(dest_addr);
+
+                        RERR *rerr;
+                        DEBUG(LOG_DEBUG, 0,
+                                "No route, src=%s dest=%s prev_hop=%s - DROPPING!",
+                                ip_to_str(src_addr), ip_to_str(dest_addr));
+                        if (fwd_rt)
+                        {
+                            rerr = rerr_create(0, fwd_rt->dest_addr,fwd_rt->dest_seqno);
+                            rt_table_update_timeout(fwd_rt, DELETE_PERIOD);
+                        }
+                        else
+                            rerr = rerr_create(0, dest_addr, 0);
+                        struct in_addr src_addr;
+                        src_addr.s_addr = control->getSrcAddress();
+                        rt_table_t * rev_rt = rt_table_find(src_addr);
+
+                        struct in_addr rerr_dest;
+
+                        if (rev_rt && rev_rt->state == VALID)
+                            rerr_dest = rev_rt->next_hop;
+                        else
+                            rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
+
+                        aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr), 1, &DEV_IFINDEX(NS_IFINDEX));
+                    }
+                }
+            }
+            else
+            {
+                ipDgram = (IPv4Datagram*) control->decapsulate();
+                cPolymorphic * ctrl = ipDgram->removeControlInfo();
+                unsigned int ifindex = NS_IFINDEX;  /* Always use ns interface */
+                if (ctrl)
+                {
+                    if (dynamic_cast<Ieee802Ctrl*> (ctrl))
+                    {
+                        Ieee802Ctrl *ieeectrl = dynamic_cast<Ieee802Ctrl*> (ctrl);
+                        ManetAddress address(ieeectrl->getDest());
+                        int index = getWlanInterfaceIndexByAddress(address);
+                        if (index!=-1)
+                            ifindex = index;
+                    }
+                    delete ctrl;
+                }
+                EV << "Aodv rec datagram  " << ipDgram->getName() << " with dest=" << ipDgram->getDestAddress().str() << "\n";
+                processPacket(ipDgram,ifindex);   // Data path
+            }
         }
         else if (control->getOptionCode()== MANET_ROUTE_UPDATE)
         {
@@ -611,7 +673,7 @@ void NS_CLASS handleMessage (cMessage *msg)
             }
             else
             {
-                Ieee802Ctrl *controlInfo = check_and_cast<Ieee802Ctrl*>(udpPacket->getControlInfo());
+                Ieee802Ctrl *controlInfo = check_and_cast<Ieee802Ctrl*>(aodvMsg->getControlInfo());
                 src_addr.s_addr = ManetAddress(controlInfo->getSrc());
             }
         }
@@ -868,34 +930,131 @@ void NS_CLASS recvAODVUUPacket(cMessage * msg)
     }
 
     InterfaceEntry *   ie;
-    for (int i = 0; i < getNumWlanInterfaces(); i++)
-    {
-        ie = getWlanInterfaceEntry(i);
-        if (!isInMacLayer())
+	/* pepemm7- fixed for INET 2.5 */ 
+    if (!isInMacLayer())
         {
-            IPv4InterfaceData *ipv4data = ie->ipv4Data();
-            if (interfaceId ==ie->getInterfaceId())
-                ifIndex=getWlanInterfaceIndex(i);
-
-            if (ManetAddress(ipv4data->getIPAddress()) == src.s_addr)
+            for (int i = 0; i < getNumWlanInterfaces(); i++)
             {
-                delete   aodv_msg;
+                ie = getWlanInterfaceEntry(i);
+
+                {
+                    // IPv4InterfaceData *ipv4data = ie->ipv4Data();
+                    if (interfaceId == ie->getInterfaceId())
+                        ifIndex = getWlanInterfaceIndex(i);
+                }
+            }
+        }
+        aodv_socket_process_packet(aodv_msg, len, src, dst, ttl, ifIndex);
+        delete   aodv_msg;
+    }
+
+
+    void NS_CLASS processMacPacket(cPacket * p, const ManetAddress &dest, const ManetAddress &src, int ifindex)
+    {
+        struct in_addr dest_addr, src_addr;
+        bool isLocal = false;
+        struct ip_data *ipd = NULL;
+        u_int8_t rreq_flags = 0;
+
+        dest_addr.s_addr = dest;
+        src_addr.s_addr = src;
+        rt_table_t *fwd_rt, *rev_rt;
+
+        //InterfaceEntry *   ie = getInterfaceEntry(ifindex);
+        isLocal = isLocalAddress(src);
+
+        rev_rt = rt_table_find(src_addr);
+        fwd_rt = rt_table_find(dest_addr);
+
+
+        rt_table_update_route_timeouts(fwd_rt, rev_rt);
+
+        /* OK, the timeouts have been updated. Now see if either: 1. The
+           packet is for this node -> ACCEPT. 2. The packet is not for this
+           node -> Send RERR (someone want's this node to forward packets
+           although there is no route) or Send RREQ. */
+
+        if (!fwd_rt || fwd_rt->state == INVALID ||
+                (fwd_rt->hcnt == 1 && (fwd_rt->flags & RT_UNIDIR)))
+        {
+            // If I am the originating node, then a route discovery
+            // must be performed
+            if (isLocal || (fwd_rt && (fwd_rt->flags & RT_REPAIR)))
+            {
+                if (p->getControlInfo())
+                    delete p->removeControlInfo();
+                packet_queue_add(p, dest_addr);
+                if (fwd_rt && (fwd_rt->flags & RT_REPAIR))
+                    rreq_local_repair(fwd_rt, src_addr, ipd);
+                else
+                {
+                    if (par("targetOnlyRreq").boolValue())
+                        rreq_flags |= RREQ_DEST_ONLY;
+                    rreq_route_discovery(dest_addr, rreq_flags, ipd);
+                }
+            }
+            // Else we must send a RERR message to the source if
+            // the route has been previously used
+            else
+            {
+
+                RERR *rerr;
+                DEBUG(LOG_DEBUG, 0,
+                        "No route, src=%s dest=%s prev_hop=%s - DROPPING!",
+                        ip_to_str(src_addr), ip_to_str(dest_addr));
+                if (fwd_rt)
+                {
+                    rerr = rerr_create(0, fwd_rt->dest_addr,fwd_rt->dest_seqno);
+                    rt_table_update_timeout(fwd_rt, DELETE_PERIOD);
+                }
+                else
+                    rerr = rerr_create(0, dest_addr, 0);
+                DEBUG(LOG_DEBUG, 0, "Sending RERR to prev hop %s for unknown dest %s",
+                        ip_to_str(src_addr), ip_to_str(dest_addr));
+
+                    /* Unicast the RERR to the source of the data transmission
+                     * if possible, otherwise we broadcast it. */
+                struct in_addr rerr_dest;
+                if (rev_rt && rev_rt->state == VALID)
+                    rerr_dest = rev_rt->next_hop;
+                else
+                    rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
+                aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
+                        1, &DEV_IFINDEX(ifindex));
+                if (wait_on_reboot)
+                {
+                    DEBUG(LOG_DEBUG, 0, "Wait on reboot timer reset.");
+                    timer_set_timeout(&worb_timer, DELETE_PERIOD);
+                }
+                //drop (p);
+                sendICMP(p);
+                /* DEBUG(LOG_DEBUG, 0, "Dropping pkt uid=%d", ch->uid()); */
+                //  icmpAccess.get()->sendErrorMessage(p, ICMP_DESTINATION_UNREACHABLE, 0);
                 return;
             }
+            scheduleNextEvent();
+            return;
         }
         else
         {
-            ManetAddress add(ie->getMacAddress());
-            if (add== src.s_addr)
+            /* DEBUG(LOG_DEBUG, 0, "Sending pkt uid=%d", ch->uid()); */
+            if (p->getControlInfo())
+                delete p->removeControlInfo();
+            if (isInMacLayer())
             {
-                delete   aodv_msg;
-                return;
+                Ieee802Ctrl *ctrl = new Ieee802Ctrl();
+                ctrl->setDest(fwd_rt->next_hop.s_addr.getMAC());
+                //TODO ctrl->setEtherType(...);
+                p->setControlInfo(ctrl);
             }
+
+            send(p, "to_ip");
+            /* When forwarding data, make sure we are sending HELLO messages */
+            //gettimeofday(&this_host.fwd_time, NULL);
+            if (!llfeedback && optimized_hellos)
+                hello_start();
         }
     }
-    aodv_socket_process_packet(aodv_msg, len, src, dst, ttl, ifIndex);
-    delete   aodv_msg;
-}
 
 
 void NS_CLASS processPacket(IPv4Datagram * p,unsigned int ifindex)
@@ -1044,8 +1203,12 @@ route_discovery:
         if (fwd_rt && (fwd_rt->flags & RT_REPAIR))
             rreq_local_repair(fwd_rt, src_addr, ipd);
         else
-            rreq_route_discovery(dest_addr, rreq_flags, ipd);
-
+		/* pepemm7- fixed for INET 2.5 */ 
+        {
+                    if (par("targetOnlyRreq").boolValue())
+                        rreq_flags |= RREQ_DEST_ONLY;
+                    rreq_route_discovery(dest_addr, rreq_flags, ipd);
+         }
         return;
 
     }
@@ -1090,7 +1253,7 @@ void NS_CLASS processLinkBreak(const cPolymorphic *details)
     {
         if (dynamic_cast<IPv4Datagram *>(const_cast<cPolymorphic*> (details)))
         {
-            dgram = check_and_cast<IPv4Datagram *>(details);
+            dgram = const_cast<IPv4Datagram *>(check_and_cast<const IPv4Datagram *>(details));
             packetFailed(dgram);
             return;
         }
@@ -1176,323 +1339,342 @@ void NS_CLASS setRefreshRoute(const ManetAddress &destination, const ManetAddres
     next_hop.s_addr = nextHop;
     rt_table_t * route  = rt_table_find(dest_addr);
 
-    if(par ("checkNextHop").boolValue())
-    {
-        if (nextHop.isUnspecified())
-           return;
-        if (!isReverse)
+	/* pepemm7- fixed for INET 2.5 */ 
+    ManetAddress apAddr;
+        bool gratuitus = false;
+
+
+        if (getAp(destination,apAddr))
         {
-            if (route &&(route->next_hop.s_addr==nextHop))
-                 rt_table_update_route_timeouts(route, NULL);
+            dest_addr.s_addr = apAddr;
+        }
+        if (getAp(nextHop,apAddr))
+        {
+            next_hop.s_addr = apAddr;
         }
 
-
-        if (isReverse && !route)
+        if(par ("checkNextHop").boolValue())
         {
-            // Gratuitous Return Path
-            struct in_addr node_addr;
-            struct in_addr  ip_src;
-            node_addr.s_addr = destination;
-            ip_src.s_addr = nextHop;
-            rt_table_insert(node_addr, ip_src,0,0, ACTIVE_ROUTE_TIMEOUT, VALID, 0,NS_DEV_NR,0xFFFFFFF,100);
-        }
-        else if (route && (route->next_hop.s_addr==nextHop))
-            rt_table_update_route_timeouts(NULL, route);
+            if (nextHop.isUnspecified())
+               return;
+            if (!isReverse)
+            {
+                if (route &&(route->next_hop.s_addr==nextHop))
+                     rt_table_update_route_timeouts(route, NULL);
+            }
 
+
+            if (isReverse && !route && gratuitus)
+            {
+                // Gratuitous Return Path
+                struct in_addr node_addr;
+                struct in_addr  ip_src;
+                node_addr.s_addr = destination;
+                ip_src.s_addr = nextHop;
+                rt_table_insert(node_addr, ip_src,0,0, ACTIVE_ROUTE_TIMEOUT, VALID, 0,NS_DEV_NR,0xFFFFFFF,100);
+            }
+            else if (route && (route->next_hop.s_addr == nextHop))
+                rt_table_update_route_timeouts(NULL, route);
+
+        }
+        else
+        {
+            if (!isReverse)
+            {
+                if (route)
+                     rt_table_update_route_timeouts(route, NULL);
+            }
+
+
+            if (isReverse && !route && !nextHop.isUnspecified())
+            {
+                // Gratuitous Return Path
+                struct in_addr node_addr;
+                struct in_addr  ip_src;
+                node_addr.s_addr = destination;
+                ip_src.s_addr = nextHop;
+                rt_table_insert(node_addr, ip_src,0,0, ACTIVE_ROUTE_TIMEOUT, VALID, 0,NS_DEV_NR,0xFFFFFFF,100);
+            }
+            else if (route)
+                rt_table_update_route_timeouts(NULL, route);
+
+        }
+
+        Enter_Method_Silent();
+        scheduleNextEvent();
     }
-    else
+
+
+    bool NS_CLASS isOurType(cPacket * msg)
     {
-        if (!isReverse)
-        {
-            if (route)
-                 rt_table_update_route_timeouts(route, NULL);
-        }
-
-
-        if (isReverse && !route && !nextHop.isUnspecified())
-        {
-            // Gratuitous Return Path
-            struct in_addr node_addr;
-            struct in_addr  ip_src;
-            node_addr.s_addr = destination;
-            ip_src.s_addr = nextHop;
-            rt_table_insert(node_addr, ip_src,0,0, ACTIVE_ROUTE_TIMEOUT, VALID, 0,NS_DEV_NR,0xFFFFFFF,100);
-        }
-        else if (route)
-            rt_table_update_route_timeouts(NULL, route);
-
-    }
-
-    Enter_Method_Silent();
-    scheduleNextEvent();
-}
-
-
-bool NS_CLASS isOurType(cPacket * msg)
-{
-    AODV_msg *re = dynamic_cast <AODV_msg *>(msg);
-    if (re)
-        return true;
-    return false;
-}
-
-bool NS_CLASS getDestAddress(cPacket *msg,ManetAddress &dest)
-{
-    RREQ *rreq = dynamic_cast <RREQ *>(msg);
-    if (!rreq)
+        AODV_msg *re = dynamic_cast <AODV_msg *>(msg);
+        if (re)
+            return true;
         return false;
-    dest = rreq->dest_addr;
-    return true;
+    }
 
-}
-#ifdef AODV_USE_STL_RT
-bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const int &ifaceIndex,const int &hops,const ManetAddress &mask)
-{
-    Enter_Method_Silent();
-    struct in_addr destAddr;
-    struct in_addr nextAddr;
-    struct in_addr rerr_dest;
-    destAddr.s_addr = dest;
-    nextAddr.s_addr = add;
-    bool status=true;
-    bool delEntry = add.isUnspecified();
-
-    DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
-
-    rt_table_t * fwd_rt = rt_table_find(destAddr);
-
-    if (fwd_rt)
+    bool NS_CLASS getDestAddress(cPacket *msg,ManetAddress &dest)
     {
-        if (delEntry)
+        RREQ *rreq = dynamic_cast <RREQ *>(msg);
+        if (!rreq)
+            return false;
+        dest = rreq->dest_addr;
+        return true;
+
+    }
+
+    #ifdef AODV_USE_STL_RT
+    bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const int &ifaceIndex,const int &hops,const ManetAddress &mask)
+    {
+        Enter_Method_Silent();
+        struct in_addr destAddr;
+        struct in_addr nextAddr;
+        struct in_addr rerr_dest;
+        destAddr.s_addr = dest;
+        nextAddr.s_addr = add;
+        bool status=true;
+        bool delEntry = add.isUnspecified();
+
+        DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
+
+        rt_table_t * fwd_rt = rt_table_find(destAddr);
+
+        if (fwd_rt)
         {
-            RERR* rerr = rerr_create(0, destAddr, 0);
-            DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
+            if (delEntry)
+            {
+                RERR* rerr = rerr_create(0, destAddr, 0);
+                DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
 
-            /* Unicast the RERR to the source of the data transmission
-             * if possible, otherwise we broadcast it. */
-            rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
+                /* Unicast the RERR to the source of the data transmission
+                 * if possible, otherwise we broadcast it. */
+                rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
 
-            aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
-                             1, &DEV_IFINDEX(NS_IFINDEX));
+                aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
+                                 1, &DEV_IFINDEX(NS_IFINDEX));
+            }
+            ManetAddress dest = fwd_rt->dest_addr.s_addr;
+            AodvRtTableMap::iterator it = aodvRtTableMap.find(dest);
+            if (it != aodvRtTableMap.end())
+            {
+                if (it->second != fwd_rt)
+                    opp_error("AODV routing table error");
+            }
+            aodvRtTableMap.erase(it);
+            if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
+                rt_tbl.num_active--;
+            timer_remove(&fwd_rt->rt_timer);
+            timer_remove(&fwd_rt->hello_timer);
+            timer_remove(&fwd_rt->ack_timer);
+            rt_tbl.num_entries = aodvRtTableMap.size();
+            free (fwd_rt);
         }
-        ManetAddress dest = fwd_rt->dest_addr.s_addr;
-        AodvRtTableMap::iterator it = aodvRtTableMap.find(dest);
-        if (it != aodvRtTableMap.end())
+        else
+            DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+
+        if (ifaceIndex>=getNumInterfaces())
+            status = false;
+        ManetRoutingBase::setRoute(dest,add,ifaceIndex,hops,mask);
+
+        if (!delEntry && ifaceIndex<getNumInterfaces())
         {
-            if (it->second != fwd_rt)
-                opp_error("AODV routing table error");
+            fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, ifaceIndex);
+            status = (fwd_rt!=NULL);
+
         }
-        aodvRtTableMap.erase(it);
-        if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
-            rt_tbl.num_active--;
-        timer_remove(&fwd_rt->rt_timer);
-        timer_remove(&fwd_rt->hello_timer);
-        timer_remove(&fwd_rt->ack_timer);
-        rt_tbl.num_entries = aodvRtTableMap.size();
-        free (fwd_rt);
-    }
-    else
-        DEBUG(LOG_DEBUG, 0, "No route entry to delete");
 
-    if (ifaceIndex>=getNumInterfaces())
-        status = false;
-    ManetRoutingBase::setRoute(dest,add,ifaceIndex,hops,mask);
-
-    if (!delEntry && ifaceIndex<getNumInterfaces())
-    {
-        fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, ifaceIndex);
-        status = (fwd_rt!=NULL);
-
+        return status;
     }
 
-    return status;
-}
 
-
-bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const char  *ifaceName,const int &hops,const ManetAddress &mask)
-{
-    Enter_Method_Silent();
-    struct in_addr destAddr;
-    struct in_addr nextAddr;
-    struct in_addr rerr_dest;
-    destAddr.s_addr = dest;
-    nextAddr.s_addr = add;
-    bool status=true;
-    int index;
-    bool delEntry = add.isUnspecified();
-
-    DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
-    rt_table_t * fwd_rt = rt_table_find(destAddr);
-
-    if (fwd_rt)
+    bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const char  *ifaceName,const int &hops,const ManetAddress &mask)
     {
-        if (delEntry)
+        Enter_Method_Silent();
+        struct in_addr destAddr;
+        struct in_addr nextAddr;
+        struct in_addr rerr_dest;
+        destAddr.s_addr = dest;
+        nextAddr.s_addr = add;
+        bool status=true;
+        int index;
+        bool delEntry = add.isUnspecified();
+
+        DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
+        rt_table_t * fwd_rt = rt_table_find(destAddr);
+
+        if (fwd_rt)
         {
-            RERR* rerr = rerr_create(0, destAddr, 0);
-            DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
+            if (delEntry)
+            {
+                RERR* rerr = rerr_create(0, destAddr, 0);
+                DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
 
-            /* Unicast the RERR to the source of the data transmission
-             * if possible, otherwise we broadcast it. */
-            rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
+                /* Unicast the RERR to the source of the data transmission
+                 * if possible, otherwise we broadcast it. */
+                rerr_dest.s_addr = ManetAddress(IPv4Address(AODV_BROADCAST));
 
-            aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
-                             1, &DEV_IFINDEX(NS_IFINDEX));
+                aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
+                                 1, &DEV_IFINDEX(NS_IFINDEX));
+            }
+            ManetAddress dest = fwd_rt->dest_addr.s_addr;
+            AodvRtTableMap::iterator it = aodvRtTableMap.find(dest);
+            if (it != aodvRtTableMap.end())
+            {
+                if (it->second != fwd_rt)
+                    opp_error("AODV routing table error");
+            }
+            aodvRtTableMap.erase(it);
+            if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
+                rt_tbl.num_active--;
+            timer_remove(&fwd_rt->rt_timer);
+            timer_remove(&fwd_rt->hello_timer);
+            timer_remove(&fwd_rt->ack_timer);
+            rt_tbl.num_entries = aodvRtTableMap.size();
+            free (fwd_rt);
         }
-        ManetAddress dest = fwd_rt->dest_addr.s_addr;
-        AodvRtTableMap::iterator it = aodvRtTableMap.find(dest);
-        if (it != aodvRtTableMap.end())
+        else
+            DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+
+        for (index = 0; index <getNumInterfaces(); index++)
         {
-            if (it->second != fwd_rt)
-                opp_error("AODV routing table error");
+            if (strcmp(ifaceName, getInterfaceEntry(index)->getName())==0) break;
         }
-        aodvRtTableMap.erase(it);
-        if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
-            rt_tbl.num_active--;
-        timer_remove(&fwd_rt->rt_timer);
-        timer_remove(&fwd_rt->hello_timer);
-        timer_remove(&fwd_rt->ack_timer);
-        rt_tbl.num_entries = aodvRtTableMap.size();
-        free (fwd_rt);
-    }
-    else
-        DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+        if (index>=getNumInterfaces())
+            status = false;
 
-    for (index = 0; index <getNumInterfaces(); index++)
-    {
-        if (strcmp(ifaceName, getInterfaceEntry(index)->getName())==0) break;
-    }
-    if (index>=getNumInterfaces())
-        status = false;
+        ManetRoutingBase::setRoute(dest,add,index,hops,mask);
 
-    ManetRoutingBase::setRoute(dest,add,index,hops,mask);
-
-    if (!delEntry && index<getNumInterfaces())
-    {
-        fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, index);
-        status = (fwd_rt!=NULL);
-    }
-
-
-    return status;
-}
-#else
-
-bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const int &ifaceIndex,const int &hops,const ManetAddress &mask)
-{
-    Enter_Method_Silent();
-    struct in_addr destAddr;
-    struct in_addr nextAddr;
-    struct in_addr rerr_dest;
-    destAddr.s_addr = dest;
-    nextAddr.s_addr = add;
-    bool status=true;
-    bool delEntry = (add == (ManetAddress)0);
-
-    DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
-
-    rt_table_t * fwd_rt = rt_table_find(destAddr);
-
-    if (fwd_rt)
-    {
-        if (delEntry)
+        if (!delEntry && index<getNumInterfaces())
         {
-            RERR* rerr = rerr_create(0, destAddr, 0);
-            DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
-
-            /* Unicast the RERR to the source of the data transmission
-             * if possible, otherwise we broadcast it. */
-            rerr_dest.s_addr = AODV_BROADCAST;
-
-            aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
-                             1, &DEV_IFINDEX(NS_IFINDEX));
+            fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, index);
+            status = (fwd_rt!=NULL);
         }
-        list_detach(&fwd_rt->l);
-        precursor_list_destroy(fwd_rt);
-        if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
-            rt_tbl.num_active--;
-        timer_remove(&fwd_rt->rt_timer);
-        timer_remove(&fwd_rt->hello_timer);
-        timer_remove(&fwd_rt->ack_timer);
-        rt_tbl.num_entries--;
-        free (fwd_rt);
+
+
+        return status;
     }
-    else
-        DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+    #else
 
-    if (ifaceIndex>=getNumInterfaces())
-        status = false;
-    ManetRoutingBase::setRoute(dest,add,ifaceIndex,hops,mask);
-
-    if (!delEntry && ifaceIndex<getNumInterfaces())
+    bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const int &ifaceIndex,const int &hops,const ManetAddress &mask)
     {
-        fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, ifaceIndex);
-        status = (fwd_rt!=NULL);
+        Enter_Method_Silent();
+        struct in_addr destAddr;
+        struct in_addr nextAddr;
+        struct in_addr rerr_dest;
+        destAddr.s_addr = dest;
+        nextAddr.s_addr = add;
+        bool status=true;
+        bool delEntry = (add == (ManetAddress)0);
 
-    }
+        DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
 
-    return status;
-}
+        rt_table_t * fwd_rt = rt_table_find(destAddr);
 
-bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const char  *ifaceName,const int &hops,const ManetAddress &mask)
-{
-    Enter_Method_Silent();
-    struct in_addr destAddr;
-    struct in_addr nextAddr;
-    struct in_addr rerr_dest;
-    destAddr.s_addr = dest;
-    nextAddr.s_addr = add;
-    bool status=true;
-    int index;
-    bool delEntry = (add == (ManetAddress)0);
-
-    DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
-    rt_table_t * fwd_rt = rt_table_find(destAddr);
-
-    if (fwd_rt)
-    {
-        if (delEntry)
+        if (fwd_rt)
         {
-            RERR* rerr = rerr_create(0, destAddr, 0);
-            DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
+            if (delEntry)
+            {
+                RERR* rerr = rerr_create(0, destAddr, 0);
+                DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
 
-            /* Unicast the RERR to the source of the data transmission
-             * if possible, otherwise we broadcast it. */
-            rerr_dest.s_addr = AODV_BROADCAST;
+                /* Unicast the RERR to the source of the data transmission
+                 * if possible, otherwise we broadcast it. */
+                rerr_dest.s_addr = AODV_BROADCAST;
 
-            aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
-                             1, &DEV_IFINDEX(NS_IFINDEX));
+                aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
+                                 1, &DEV_IFINDEX(NS_IFINDEX));
+            }
+            list_detach(&fwd_rt->l);
+            precursor_list_destroy(fwd_rt);
+            if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
+                rt_tbl.num_active--;
+            timer_remove(&fwd_rt->rt_timer);
+            timer_remove(&fwd_rt->hello_timer);
+            timer_remove(&fwd_rt->ack_timer);
+            rt_tbl.num_entries--;
+            free (fwd_rt);
         }
-        list_detach(&fwd_rt->l);
-        precursor_list_destroy(fwd_rt);
-        if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
-            rt_tbl.num_active--;
-        timer_remove(&fwd_rt->rt_timer);
-        timer_remove(&fwd_rt->hello_timer);
-        timer_remove(&fwd_rt->ack_timer);
-        rt_tbl.num_entries--;
-        free (fwd_rt);
-    }
-    else
-        DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+        else
+            DEBUG(LOG_DEBUG, 0, "No route entry to delete");
 
-    for (index = 0; index <getNumInterfaces(); index++)
+        if (ifaceIndex>=getNumInterfaces())
+            status = false;
+        ManetRoutingBase::setRoute(dest,add,ifaceIndex,hops,mask);
+
+        if (!delEntry && ifaceIndex<getNumInterfaces())
+        {
+            fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, ifaceIndex);
+            status = (fwd_rt!=NULL);
+
+        }
+
+        return status;
+    }
+
+    bool  NS_CLASS setRoute(const ManetAddress &dest,const ManetAddress &add, const char  *ifaceName,const int &hops,const ManetAddress &mask)
     {
-        if (strcmp(ifaceName, getInterfaceEntry(index)->getName())==0) break;
+        Enter_Method_Silent();
+        struct in_addr destAddr;
+        struct in_addr nextAddr;
+        struct in_addr rerr_dest;
+        destAddr.s_addr = dest;
+        nextAddr.s_addr = add;
+        bool status=true;
+        int index;
+        bool delEntry = (add == (ManetAddress)0);
+
+        DEBUG(LOG_DEBUG, 0, "setRoute %s next hop %s",ip_to_str(destAddr),ip_to_str(nextAddr));
+        rt_table_t * fwd_rt = rt_table_find(destAddr);
+
+        if (fwd_rt)
+        {
+            if (delEntry)
+            {
+                RERR* rerr = rerr_create(0, destAddr, 0);
+                DEBUG(LOG_DEBUG, 0, "setRoute Sending for unknown dest %s", ip_to_str(destAddr));
+
+                /* Unicast the RERR to the source of the data transmission
+                 * if possible, otherwise we broadcast it. */
+                rerr_dest.s_addr = AODV_BROADCAST;
+
+                aodv_socket_send((AODV_msg *) rerr, rerr_dest,RERR_CALC_SIZE(rerr),
+                                 1, &DEV_IFINDEX(NS_IFINDEX));
+            }
+            list_detach(&fwd_rt->l);
+            precursor_list_destroy(fwd_rt);
+            if (fwd_rt->state == VALID || fwd_rt->state == IMMORTAL)
+                rt_tbl.num_active--;
+            timer_remove(&fwd_rt->rt_timer);
+            timer_remove(&fwd_rt->hello_timer);
+            timer_remove(&fwd_rt->ack_timer);
+            rt_tbl.num_entries--;
+            free (fwd_rt);
+        }
+        else
+            DEBUG(LOG_DEBUG, 0, "No route entry to delete");
+
+        for (index = 0; index <getNumInterfaces(); index++)
+        {
+            if (strcmp(ifaceName, getInterfaceEntry(index)->getName())==0) break;
+        }
+        if (index>=getNumInterfaces())
+            status = false;
+
+        ManetRoutingBase::setRoute(dest,add,index,hops,mask);
+
+        if (!delEntry && index<getNumInterfaces())
+        {
+            fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, index);
+            status = (fwd_rt!=NULL);
+        }
+
+
+        return status;
     }
-    if (index>=getNumInterfaces())
-        status = false;
+    #endif
 
-    ManetRoutingBase::setRoute(dest,add,index,hops,mask);
-
-    if (!delEntry && index<getNumInterfaces())
+    void NS_CLASS actualizeTablesWithCollaborative(const ManetAddress &dest)
     {
-        fwd_rt = modifyAODVTables(destAddr,nextAddr,hops,(uint32_t) SIMTIME_DBL(simTime()), 0xFFFF,IMMORTAL,0, index);
-        status = (fwd_rt!=NULL);
+       return;
     }
-
-
-    return status;
-}
-#endif
-
 

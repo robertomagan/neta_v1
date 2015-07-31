@@ -76,7 +76,8 @@ module NA_AttackerAdhocHost extends NA_WirelessHost
             @display("p=708,205");
         }
     connections:
-        networkLayer.manetOut --> manetrouting.from_ip if routingProtocol != "";
-        networkLayer.manetIn <-- manetrouting.to_ip if routingProtocol != "";
+// pepemm7- fixed for INET 2.5 */ 
+        networkLayer.transportOut++ --> manetrouting.from_ip if routingProtocol != "";
+        networkLayer.transportIn++ <-- manetrouting.to_ip if routingProtocol != "";
         
 }
