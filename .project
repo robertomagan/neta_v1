@@ -3,7 +3,7 @@
 	<name>netattacks_v1</name>
 	<comment></comment>
 	<projects>
-		<project>inet</project>
+		<project>inet25</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
