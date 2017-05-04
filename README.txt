@@ -1,4 +1,4 @@
-NETA (NETworks Attacks) - http://nesg.ugr.es/index.php/en/results
+NETA (NETworks Attacks) - http://nesg.ugr.es/neta
 
 Contents
 ========
